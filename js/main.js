@@ -104,78 +104,69 @@ AOS.init({
   contentWayPoint();
 
   // Client Logos carousel
-  $('.client-logos-carousel').owlCarousel({
-    loop: true,
-    rewind: true,
-    items: 1,
-    margin: 10,
-    nav: true,
-    dots: true,
-    autoplay: false,
-    autoplayHoverPause: true,
-    smartSpeed: 300,
-    autoplayTimeout: 8000,
-    responsiveClass: true,
-    responsive: {
-      0: {
-        items: 2,
-        nav: true,
-      },
-      600: {
-        items: 5,
-        nav: false,
-      },
-      1024: {
-        items: 8,
-        nav: true,
-        loop: false,
-      },
-    },
-    animateOut: 'fadeOut',
-    navText: [
-      "<i class='icon-long-arrow-left'></i>",
-      "<i class='icon-long-arrow-right'></i>",
-    ],
-  });
+	$(".client-logos-carousel").owlCarousel({
+		loop: true,
+		rewind: true,
+		items: 1,
+		margin: 10,
+		nav: true,
+		dots: true,
+		autoplay: false,
+		autoplayHoverPause:true,
+		smartSpeed: 300,
+		autoplayTimeout: 8000,
+		responsiveClass:true,
+		responsive:{
+			0:{
+				items:2,
+				nav:true
+			},
+			600:{
+				items:5,
+				nav:false
+			},
+			1024:{
+				items:8,
+				nav:true,
+				loop:false
+			}
+		},
+		animateOut: 'fadeOut',
+		navText : ["<i class='icon-long-arrow-left'></i>","<i class='icon-long-arrow-right'></i>"],
+	});
 
-  //  portfolio #dashboard-banner-carousel //
-  $('.product-item-carousel')
-    .on('initialized.owl.carousel changed.owl.carousel', function (e) {
-      if (!e.namespace) {
-        return;
-      }
-      $('.product-item-numbers').text(
-        e.relatedTarget.relative(e.item.index) + 1 + ' / ' + e.item.count
-      );
-    })
-    .owlCarousel({
-      loop: false,
-      rewind: true,
-      items: 1,
-      margin: 15,
-      nav: true,
-      dots: false,
-      autoplay: true,
-      autoplayHoverPause: true,
-      smartSpeed: 300,
-      autoplayTimeout: 8000,
-      animateOut: 'fadeOut',
-      navText: [
-        "<i class='fa fa-chevron-left'></i>",
-        "<i class='fa fa-chevron-right'></i>",
-      ],
-    });
+	//  portfolio #dashboard-banner-carousel //
+	$('.product-item-carousel').on("initialized.owl.carousel changed.owl.carousel", function(e) {
+		if (!e.namespace) {
+		  return;
+		}
+		$(".product-item-numbers").text(
+		  e.relatedTarget.relative(e.item.index) + 1 + " / " + e.item.count
+		);
+	  }).owlCarousel({
+		loop: false,
+		rewind: true,
+		items: 1,
+		margin: 15,
+		nav: true,
+		dots: false,
+		autoplay: true,
+		autoplayHoverPause:true,
+		smartSpeed: 300,
+		autoplayTimeout: 8000,
+		animateOut: 'fadeOut',
+		navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+	});
 
-  $(
-    ".product-item-carousel a[rel^='prettyPhoto[cat_list_gallery]']"
-  ).prettyPhoto({
-    theme: 'facebook',
-    slideshow: 5000,
-    autoplay_slideshow: true,
-    allow_resize: true,
-    social_tools: false,
-    deeplinking: false,
-  });
+	$(".product-item-carousel a[rel^='prettyPhoto[cat_list_gallery]']").prettyPhoto({
+		theme: 'facebook',
+		slideshow:5000,
+		autoplay_slideshow:true,
+		allow_resize: true,
+		social_tools:false,
+		deeplinking:false
+	});
+
   $('.product-single-carousel')
     .on('initialized.owl.carousel changed.owl.carousel', function (e) {
       if (!e.namespace) {

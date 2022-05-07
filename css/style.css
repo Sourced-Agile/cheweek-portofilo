@@ -8977,6 +8977,7 @@ body.offcanvas .brand-logo {
   color: #fff;
   display: block;
   position: absolute;
+  width: 100%;
   bottom: 0px;
   left: 0;
   padding: 5px 10px 5px;
