@@ -1,75 +1,37 @@
 const boxArray = [];
 const div = document.querySelectorAll('#outdoor')[0];
 function handleApi(res) {
-  // console.log(res);
-
   res.forEach((e) => {
     div.insertAdjacentHTML('beforeend', boxHTML(e));
-  });
-
-  // Client Logos carousel
-  $('.client-logos-carousel').owlCarousel({
-    loop: true,
-    rewind: true,
-    items: 1,
-    margin: 10,
-    nav: true,
-    dots: true,
-    autoplay: false,
-    autoplayHoverPause: true,
-    smartSpeed: 300,
-    autoplayTimeout: 8000,
-    responsiveClass: true,
-    responsive: {
-      0: {
-        items: 2,
-        nav: true,
-      },
-      600: {
-        items: 5,
-        nav: false,
-      },
-      1024: {
-        items: 8,
-        nav: true,
+    //OWL CAROUSEL
+    $(`#${e.id}`)
+      .on('initialized.owl.carousel changed.owl.carousel', function (e) {
+        if (!e.namespace) {
+          return;
+        }
+        $('.product-single-item-numbers').text(
+          e.relatedTarget.relative(e.item.index) + 1 + ' / ' + e.item.count
+        );
+      })
+      .owlCarousel({
         loop: false,
-      },
-    },
-    animateOut: 'fadeOut',
-    navText: [
-      "<i class='icon-long-arrow-left'></i>",
-      "<i class='icon-long-arrow-right'></i>",
-    ],
+        rewind: true,
+        items: 1,
+        margin: 15,
+        nav: true,
+        dots: false,
+        autoplay: true,
+        autoplayHoverPause: true,
+        smartSpeed: 300,
+        autoplayTimeout: 8000,
+        animateOut: 'fadeOut',
+        navText: [
+          "<i class='fa fa-chevron-left'></i>",
+          "<i class='fa fa-chevron-right'></i>",
+        ],
+      });
   });
-
-  //  portfolio #dashboard-banner-carousel //
-  $('.product-item-carousel')
-    .on('initialized.owl.carousel changed.owl.carousel', function (e) {
-      if (!e.namespace) {
-        return;
-      }
-      $('.product-item-numbers').text(
-        e.relatedTarget.relative(e.item.index) + 1 + ' / ' + e.item.count
-      );
-    })
-    .owlCarousel({
-      loop: false,
-      rewind: true,
-      items: 1,
-      margin: 15,
-      nav: true,
-      dots: false,
-      autoplay: true,
-      autoplayHoverPause: true,
-      smartSpeed: 300,
-      autoplayTimeout: 8000,
-      animateOut: 'fadeOut',
-      navText: [
-        "<i class='fa fa-chevron-left'></i>",
-        "<i class='fa fa-chevron-right'></i>",
-      ],
-    });
-
+  // PRETTY PHOTO
   $(
     ".product-item-carousel a[rel^='prettyPhoto[cat_list_gallery]']"
   ).prettyPhoto({
@@ -80,20 +42,11 @@ function handleApi(res) {
     social_tools: false,
     deeplinking: false,
   });
-
-  // res.forEach((e) => {
-  //   boxArray.push(boxHTML(e));
-  // });
-  // div.insertAdjacentHTML('beforeend', boxArray.join(''));
-}
-
-function insertHTML(arr) {
-  // arr.forEach((e) => console.log(e));
 }
 
 function imgArr(fileUrl, aciqlama) {
   const imageArr = fileUrl.split('|');
-  // console.log(imageArr);
+
   imgHTML = imageArr.map(
     (e) => `
     <div class="product-item">
@@ -109,7 +62,7 @@ function boxHTML(data) {
   <div  class="col-md-3">
   <div class="blog-entry  product-item-box">
     <div class="product-item-box-in">
-    <div id='${data.id}' class="owl-carousel product-item-carousel">
+    <div id='${data.id}'  class="owl-carousel product-item-carousel">
     ${imgArr(data.fileUrl, data.aciqlama).join('')}
     </div>
     <span class="product-item-numbers">1 / 3</span>
@@ -119,7 +72,7 @@ function boxHTML(data) {
     }</span></a>
     </div>
     <div class="text text-2 pt-1 mt-1">
-      <h3 class="mb-2"><a href="detail.html">${data.aciqlama}</a></h3> 
+      <h3 class="mb-2"><a href="detail.html">${data.mezmun}</a></h3> 
     </div>
   </div>
 </div>
