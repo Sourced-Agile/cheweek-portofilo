@@ -1,7 +1,7 @@
 const boxArray = [];
 const div = document.querySelectorAll('#outdoor')[0];
 function handleApi(res) {
-  console.log(res);
+  // console.log(res);
 
   res.forEach((e) => {
     div.insertAdjacentHTML('beforeend', boxHTML(e));
@@ -88,12 +88,12 @@ function handleApi(res) {
 }
 
 function insertHTML(arr) {
-  arr.forEach((e) => console.log(e));
+  // arr.forEach((e) => console.log(e));
 }
 
 function imgArr(fileUrl, aciqlama) {
   const imageArr = fileUrl.split('|');
-  console.log(imageArr);
+  // console.log(imageArr);
   imgHTML = imageArr.map(
     (e) => `
     <div class="product-item">
@@ -106,10 +106,10 @@ function imgArr(fileUrl, aciqlama) {
 
 function boxHTML(data) {
   return `
-  <div id='${}' class="col-md-3">
+  <div  class="col-md-3">
   <div class="blog-entry  product-item-box">
     <div class="product-item-box-in">
-    <div class="owl-carousel product-item-carousel">
+    <div id='${data.id}' class="owl-carousel product-item-carousel">
     ${imgArr(data.fileUrl, data.aciqlama).join('')}
     </div>
     <span class="product-item-numbers">1 / 3</span>
