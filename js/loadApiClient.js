@@ -90,6 +90,7 @@ function boxHTML(data) {
     <div id='${data.id}'  class="owl-carousel product-item-carousel">
     ${imgArr(data.fileUrl, data.aciqlama, data.id).join('')}
     </div>
+    <span class="product-item-brand"><img src="images/azercell.jpg" /></span>
     <span class="product-item-numbers count-${data.id}">0/0</span>
     <span class="product-id-name"></span>
     <a href="detail.html"><span class="product-short-desc">${
