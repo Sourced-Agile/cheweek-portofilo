@@ -1,45 +1,88 @@
-a, a:hover, a:focus {
-    color: #ffffff;
-  }
-  .ftco-section {
-    background-color: #ffffff;
-  }
-  h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
-    color: rgb(255 255 255 / 80%);
-  }
-  .blog-entry .text h3 a, #colorlib-aside #colorlib-main-menu ul li.colorlib-active a, .tagcloud a, .tagcloud a:hover {
-    color: #000000;
-  }
-  .owl-carousel .owl-nav .owl-prev, .owl-carousel .owl-nav .owl-next {
-    color: #fff !important;
-  }
-  .tagcloud a:hover {
-    border: 1px solid #fff;
-  }
-  .ftco-footer {
-    font-size: 14px;
-    background: #000000;
-  }
-  #colorlib-aside #colorlib-main-menu ul li a, #colorlib-aside .colorlib-footer {
-    color: rgba(0, 0, 0, 0.4);
-  }
-  #colorlib-aside {
-    background: rgb(245 245 245);
-  }
-  #colorlib-aside #colorlib-main-menu ul li a:hover {
-    color: black;
-  }
-  #colorlib-aside .colorlib-footer ul li a:hover, #colorlib-aside .colorlib-footer ul li a:active, #colorlib-aside .colorlib-footer ul li a:focus {
-    text-decoration: none;
-    outline: none;
-    color: #000; 
-  }
-  #colorlib-aside .colorlib-footer ul li a{
-    color: rgb(0 0 0 / 80%);
+a,
+a:hover,
+a:focus {
+  color: #ffffff;
 }
-h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
+.ftco-section {
+  background-color: #ffffff;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  color: rgb(255 255 255 / 80%);
+}
+.blog-entry .text h3 a,
+#colorlib-aside #colorlib-main-menu ul li.colorlib-active a,
+.tagcloud a,
+.tagcloud a:hover {
+  color: #000000;
+}
+.owl-carousel .owl-nav .owl-prev,
+.owl-carousel .owl-nav .owl-next {
+  color: #fff !important;
+}
+.tagcloud a:hover {
+  border: 1px solid #fff;
+}
+.ftco-footer {
+  font-size: 14px;
+  background: #000000;
+}
+#colorlib-aside #colorlib-main-menu ul li a,
+#colorlib-aside .colorlib-footer {
+  color: rgba(0, 0, 0, 0.4);
+}
+#colorlib-aside {
+  background: rgb(245 245 245);
+}
+#colorlib-aside #colorlib-main-menu ul li a:hover {
+  color: black;
+}
+#colorlib-aside .colorlib-footer ul li a:hover,
+#colorlib-aside .colorlib-footer ul li a:active,
+#colorlib-aside .colorlib-footer ul li a:focus {
+  text-decoration: none;
+  outline: none;
+  color: #000;
+}
+#colorlib-aside .colorlib-footer ul li a {
+  color: rgb(0 0 0 / 80%);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
   color: rgba(0, 0, 0, 0.8);
 }
 #colorlib-aside #colorlib-main-menu ul li a:after {
   background-color: #000000;
+}
+.menu-button-elm {
+  background-color: #fff;
+}
+.ftco-footer {
+  background-color: #fff;
+}
+.ftco-footer a,
+.ftco-footer p {
+  color: #000;
+}
+#colorlib-aside #colorlib-main-menu ul li a,
+#colorlib-aside .colorlib-footer,
+#colorlib-aside .colorlib-footer ul li a {
+  color: #000;
+  /* background-color: #000; */
 }
