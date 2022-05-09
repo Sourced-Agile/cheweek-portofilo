@@ -3,7 +3,7 @@ const div = document.querySelectorAll('#outdoor')[0];
 function handleApi(res) {
   res.forEach((e) => {
     div.insertAdjacentHTML('beforeend', boxHTML(e));
-    console.log(e.id);
+    // console.log(e.id);
     //OWL CAROUSEL
     $(`#${e.id}`)
       .on('changed.owl.carousel initialized.owl.carousel', function (e) {
@@ -70,7 +70,7 @@ function filterImg(mov) {
 
 function imgArr(fileUrl, aciqlama, id) {
   const imageArr = fileUrl.split('|').filter(filterImg);
-  console.log(imageArr);
+  // console.log(imageArr);
   imgHTML = imageArr.map(
     (e) => `
     
