@@ -136,36 +136,36 @@ AOS.init({
 	});
 
 	//  portfolio #dashboard-banner-carousel //
-	$('.product-item-carousel').on("initialized.owl.carousel changed.owl.carousel", function(e) {
-		if (!e.namespace) {
-		  return;
-		}
-		$(".product-item-numbers").text(
-		  e.relatedTarget.relative(e.item.index) + 1 + " / " + e.item.count
-		);
-	  }).owlCarousel({
-		loop: false,
-		rewind: true,
-		items: 1,
-		margin: 15,
-		nav: true,
-		dots: false,
-		autoplay: true,
-		autoplayHoverPause:true,
-		smartSpeed: 300,
-		autoplayTimeout: 8000,
-		animateOut: 'fadeOut',
-		navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
-	});
+	// $('.product-item-carousel').on("initialized.owl.carousel changed.owl.carousel", function(e) {
+	// 	if (!e.namespace) {
+	// 	  return;
+	// 	}
+	// 	$(".product-item-numbers").text(
+	// 	  e.relatedTarget.relative(e.item.index) + 1 + " / " + e.item.count
+	// 	);
+	//   }).owlCarousel({
+	// 	loop: false,
+	// 	rewind: true,
+	// 	items: 1,
+	// 	margin: 15,
+	// 	nav: true,
+	// 	dots: false,
+	// 	autoplay: true,
+	// 	autoplayHoverPause:true,
+	// 	smartSpeed: 300,
+	// 	autoplayTimeout: 8000,
+	// 	animateOut: 'fadeOut',
+	// 	navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+	// });
 
-	$(".product-item-carousel a[rel^='prettyPhoto[cat_list_gallery]']").prettyPhoto({
-		theme: 'facebook',
-		slideshow:5000,
-		autoplay_slideshow:true,
-		allow_resize: true,
-		social_tools:false,
-		deeplinking:false
-	});
+	// $(".product-item-carousel a[rel^='prettyPhoto[cat_list_gallery]']").prettyPhoto({
+	// 	theme: 'facebook',
+	// 	slideshow:5000,
+	// 	autoplay_slideshow:true,
+	// 	allow_resize: true,
+	// 	social_tools:false,
+	// 	deeplinking:false
+	// });
 
   $('.product-single-carousel')
     .on('initialized.owl.carousel changed.owl.carousel', function (e) {

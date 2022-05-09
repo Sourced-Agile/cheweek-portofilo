@@ -3,20 +3,19 @@ const div = document.querySelectorAll('#outdoor')[0];
 function handleApi(res) {
   res.forEach((e) => {
     div.insertAdjacentHTML('beforeend', boxHTML(e));
+    console.log(e.id);
     //OWL CAROUSEL
     $(`#${e.id}`)
-      .on('initialized.owl.carousel changed.owl.carousel', function (e) {
+      .on('changed.owl.carousel initialized.owl.carousel', function (e) {
         if (!e.namespace) {
           return;
         }
-        $('.product-single-item-numbers').text(
-          e.relatedTarget.relative(e.item.index) + 1 + ' / ' + e.item.count
-        );
       })
       .owlCarousel({
         loop: false,
         rewind: true,
         items: 1,
+        lazyLoad:true,
         margin: 15,
         nav: true,
         dots: false,
@@ -29,28 +28,44 @@ function handleApi(res) {
           "<i class='fa fa-chevron-left'></i>",
           "<i class='fa fa-chevron-right'></i>",
         ],
+        onInitialized  : counter, //When the plugin has initialized.
+        onTranslated : counter //When the translation of the stage has finished.
       });
+
+      function counter(event) {
+        var element = event.target;         // DOM element, in this example .owl-carousel
+         var items  = event.item.count;     // Number of items
+         var item = event.item.index + 1;     // Position of the current item
+       
+       // it loop is true then reset counter from 1
+       if(item > items) {
+         item = item - items
+       }
+       $(`.count-${e.id}`).html(item+" / "+items)
+      }
+
+      // PRETTY PHOTO
+      $(`.product-item-carousel a[rel^='prettyPhoto[cat_list_gallery-${e.id}]']`
+      ).prettyPhoto({
+        theme: 'facebook',
+        slideshow: 5000,
+        autoplay_slideshow: true,
+        allow_resize: true,
+        social_tools: false,
+        deeplinking: false,
+      });
+      
   });
-  // PRETTY PHOTO
-  $(
-    ".product-item-carousel a[rel^='prettyPhoto[cat_list_gallery]']"
-  ).prettyPhoto({
-    theme: 'facebook',
-    slideshow: 5000,
-    autoplay_slideshow: true,
-    allow_resize: true,
-    social_tools: false,
-    deeplinking: false,
-  });
+
 }
 
-function imgArr(fileUrl, aciqlama) {
+function imgArr(fileUrl, aciqlama, id) {
   const imageArr = fileUrl.split('|');
 
   imgHTML = imageArr.map(
     (e) => `
     <div class="product-item">
-    <a href="https://test.sourcedagile.com/api/get/files/${e}" rel="prettyPhoto[cat_list_gallery]" title="${aciqlama}">
+    <a href="https://test.sourcedagile.com/api/get/files/${e}" rel="prettyPhoto[cat_list_gallery-${id}]" title="${aciqlama}">
     <img src="https://test.sourcedagile.com/api/get/files/${e}" alt="photo"></a>
     </div>`
   );
@@ -59,13 +74,13 @@ function imgArr(fileUrl, aciqlama) {
 
 function boxHTML(data) {
   return `
-  <div  class="col-md-3">
-  <div class="blog-entry  product-item-box">
+  <div  class="col-md-3 item-${data.id}">
+  <div class="blog-entry product-item-box">
     <div class="product-item-box-in">
     <div id='${data.id}'  class="owl-carousel product-item-carousel">
-    ${imgArr(data.fileUrl, data.aciqlama).join('')}
+    ${imgArr(data.fileUrl, data.aciqlama, data.id).join('')}
     </div>
-    <span class="product-item-numbers">1 / 3</span>
+    <span class="product-item-numbers count-${data.id}">0/0</span>
     <span class="product-id-name"></span>
     <a href="detail.html"><span class="product-short-desc">${
       data.aciqlama
@@ -78,20 +93,14 @@ function boxHTML(data) {
 </div>
   `;
 }
+//! /////////////////////////////////////////////////////////////////////////////////////////////
+//! /////////////////////////////////////////////////////////////////////////////////////////////
 
-//! /////////////////////////////////////////////////////////////////////////////////////////////
-//! /////////////////////////////////////////////////////////////////////////////////////////////
-//! /////////////////////////////////////////////////////////////////////////////////////////////
-//! /////////////////////////////////////////////////////////////////////////////////////////////
-//! /////////////////////////////////////////////////////////////////////////////////////////////
-//! /////////////////////////////////////////////////////////////////////////////////////////////
-//! /////////////////////////////////////////////////////////////////////////////////////////////
-//! /////////////////////////////////////////////////////////////////////////////////////////////
 
 var data = {
   kv: {
     startLimit: '0',
-    endLimit: '10',
+    endLimit: '11',
   },
 };
 
