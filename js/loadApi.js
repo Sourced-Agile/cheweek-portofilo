@@ -3,6 +3,7 @@ const div = document.querySelectorAll('#products')[0];
 
 var endLimit =11;
 var startLimit =0;
+var rowCount = 0;
 $(function() {
   
   
@@ -14,11 +15,14 @@ $(function() {
     if (!$results.data("loading")) {
 
         if ($(window).scrollTop() + $(window).height() == $(document).height()) {
-          $results.after($("<div class='col-md-12 loading'>Loading...</div>").fadeIn('slow')).data("loading", true);
             endLimit = endLimit +11;
             startLimit = startLimit +11;
             console.log('ssss');
-           new genCategory().loadResults(startLimit,endLimit);
+            if(startLimit<rowCount){
+              $results.after($(`<div class='col-md-12 loading text-center'><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>`).fadeIn('slow')).data("loading", true);
+              new genCategory().loadResults(startLimit,endLimit);
+            }
+         
         }
     }
 });
@@ -55,7 +59,7 @@ class genCategory {
         (e) => `
         <div class="product-item">
         <a href="https://test.sourcedagile.com/api/get/files/${e}" rel="prettyPhoto[cat_list_gallery-${id}]" title="${aciqlama}">
-        <img src="https://test.sourcedagile.com/api/get/files/${e}" alt="photo"></a>
+        <img class="owl-lazy" data-src="https://test.sourcedagile.com/api/get/files/${e}" alt="photo"></a>
         </div>`
       );
       return imgHTML;
@@ -92,6 +96,7 @@ class genCategory {
                   $(this).remove();
               });
               that.handleApi(data.tbl[0].r);
+              rowCount  = data.kv.rowCount;
               $results.removeData("loading");
           }
       });
@@ -114,6 +119,7 @@ class genCategory {
         rewind: true,
         items: 1,
         lazyLoad:true,
+        itemsScaleUp : false,
         margin: 15,
         nav: true,
         dots: false,
