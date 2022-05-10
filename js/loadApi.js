@@ -1,5 +1,5 @@
 const boxArray = [];
-const div = document.querySelectorAll('#outdoor')[0];
+const div = document.querySelectorAll('#products')[0];
 function handleApi(res) {
   res.forEach((e) => {
     div.insertAdjacentHTML('beforeend', boxHTML(e));
