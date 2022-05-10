@@ -9579,7 +9579,7 @@ h5,
 }
 @media (max-width: 991.98px) {
   #colorlib-aside {
-    width: 270px;#
+    width: 270px;
     -moz-transform: translateX(-270px);
     -webkit-transform: translateX(-270px);
     -ms-transform: translateX(-270px);
@@ -9687,6 +9687,7 @@ h5,
   font-weight: 400;
   color: rgba(0, 0, 0, 0.6);
   padding: 0 20px;
+  line-height: 1.5;
 }
 #colorlib-aside .colorlib-footer span {
   display: block;
