@@ -123,7 +123,7 @@ class genCategory {
         margin: 15,
         nav: true,
         dots: false,
-        autoplay: true,
+        autoplay: false,
         autoplayHoverPause: true,
         smartSpeed: 300,
         autoplayTimeout: 8000,
