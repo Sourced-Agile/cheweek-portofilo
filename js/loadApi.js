@@ -3,7 +3,7 @@ const div = document.querySelectorAll('#products')[0];
 function handleApi(res) {
   res.forEach((e) => {
     div.insertAdjacentHTML('beforeend', boxHTML(e));
-    console.log(e.id);
+    // console.log(e.id);
     //OWL CAROUSEL
     $(`#${e.id}`)
       .on('changed.owl.carousel initialized.owl.carousel', function (e) {
