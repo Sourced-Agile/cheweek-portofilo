@@ -94,3 +94,10 @@ h5,
 .colorlib-nav-toggle i {
   background-color: #000;
 }
+.owl-carousel.product-item-carousel .product-item {
+  background: url("../images/img-loading-dark_light_1.gif") no-repeat center center;
+  background-size: cover;
+  background-position: 50% 50%;
+  left: 0;
+  top: 0;
+}

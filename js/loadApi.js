@@ -13,7 +13,6 @@ $(function () {
       if ($(window).scrollTop() + $(window).height() == $(document).height()) {
         endLimit = endLimit + 11;
         startLimit = startLimit + 11;
-        console.log('ssss');
         if (startLimit < rowCount) {
           $results
             .after(
@@ -41,8 +40,9 @@ class genCategory {
     );
   }
   boxHTML(data) {
+
     return `
-      <div  class="col-md-3 item-${data.id}">
+      <div  class="owl-lazy col-md-3 item-${data.id}">
       <div class="blog-entry product-item-box">
         <div class="product-item-box-in">
         <div id='${data.id}'  class="owl-carousel product-item-carousel">
@@ -50,9 +50,14 @@ class genCategory {
         </div>
         <span class="product-item-numbers count-${data.id}">0/0</span>
         <span class="product-id-name"></span>
-        <a href="detail.html"><span class="product-short-desc">${
-          data.aciqlama
-        }</span></a>
+        <a href="detail.html">
+          <div class="d-flex">
+            <span class="product-short-desc d-flex">
+              <strong class="mr-auto">${ data.aciqlama}</strong>
+              <strong clas="float-right"><i class="fa fa-image"></i> ${this.imgCountArr(data.fileUrl)}</strong>
+            </span>
+          </div>
+        </a>
         </div>
         <div class="text text-2 pt-1 mt-1">
           <h3 class="mb-2"><a href="detail.html">${data.mezmun}</a></h3> 
@@ -62,15 +67,20 @@ class genCategory {
       `;
   }
   imgArr(fileUrl, aciqlama, id) {
-    const imageArr = fileUrl.split('|').filter(this.filterImg);
+    const imageArr = fileUrl.split('|').filter(this.filterImg).slice(-5);
     var imgHTML = imageArr.map(
       (e) => `
         <div class="product-item">
         <a href="https://test.sourcedagile.com/api/get/files/${e}" rel="prettyPhoto[cat_list_gallery-${id}]" title="${aciqlama}">
-        <img class="owl-lazy" data-src="https://test.sourcedagile.com/api/get/files/${e}" alt="photo"></a>
+        <img class="owl-lazy" data-src="https://test.sourcedagile.com/api/get/files/${e}" data-srcset="images/img-loading-light.gif" alt="photo"></a>
         </div>`
     );
     return imgHTML;
+  }
+  imgCountArr(fileUrl) {
+    const imageCountArr = fileUrl.split('|');
+    var imgCountHTML = imageCountArr.length;
+    return imgCountHTML;
   }
   handleApi(res) {
     res.forEach((e) => {
@@ -126,7 +136,7 @@ class genCategory {
         rewind: true,
         items: 1,
         lazyLoad:true,
-        itemsScaleUp : false,
+        lazyLoadEager: true,
         margin: 15,
         nav: true,
         dots: false,

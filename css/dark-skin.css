@@ -75,3 +75,10 @@ body.offcanvas #colorlib-aside {
 .colorlib-nav-toggle i {
   background-color: #fff;
 }
+.owl-carousel.product-item-carousel .product-item {
+  background: url("../images/img-loading-dark_1.gif") no-repeat center center;
+  background-size: cover;
+  background-position: 50% 50%;
+  left: 0;
+  top: 0;
+}
