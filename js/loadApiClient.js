@@ -3,7 +3,7 @@ const div = document.querySelectorAll('#products')[0];
 function handleApi(res) {
   res.forEach((e) => {
     div.insertAdjacentHTML('beforeend', boxHTML(e));
-    console.log(e.id);
+    // console.log(e.id);
     //OWL CAROUSEL
     $(`#${e.id}`)
       .on('changed.owl.carousel initialized.owl.carousel', function (e) {
@@ -64,16 +64,15 @@ function filterImg(mov) {
     mov.includes('.jpg') ||
     mov.includes('.webp') ||
     mov.includes('.png') ||
-    mov.includes('.gif')
+    mov.includes('.gif') ||
+    mov.includes('.svg')
   );
 }
 
 function imgArr(fileUrl, aciqlama, id) {
-  const imageArr = fileUrl.split('|').filter(filterImg);
-  console.log(imageArr);
+  const imageArr = fileUrl.split('|').filter(filterImg); //.slice(0, 3);
   imgHTML = imageArr.map(
     (e) => `
-    
     <div class="product-item">
     <a href="https://test.sourcedagile.com/api/get/files/${e}" rel="prettyPhoto[cat_list_gallery-${id}]" title="${aciqlama}">
     <img src="https://test.sourcedagile.com/api/get/files/${e}" alt="photo"></a>
@@ -90,7 +89,11 @@ function boxHTML(data) {
     <div id='${data.id}'  class="owl-carousel product-item-carousel">
     ${imgArr(data.fileUrl, data.aciqlama, data.id).join('')}
     </div>
-    <span class="product-item-brand"><img src="images/azercell.jpg" /></span>
+    <span class="product-item-brand"><img src="${
+      data.kaImage
+        ? `https://test.sourcedagile.com/api/get/files/${data.kaImage}`
+        : 'https://www.fleurette-constructeur.fr/wp-content/uploads/2019/09/logo-placeholder-png-6.png'
+    }" /></span>
     <span class="product-item-numbers count-${data.id}">0/0</span>
     <span class="product-id-name"></span>
     <a href="detail.html"><span class="product-short-desc">${
