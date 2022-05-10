@@ -15,7 +15,7 @@ function handleApi(res) {
         loop: false,
         rewind: true,
         items: 1,
-        lazyLoad:true,
+        lazyLoad: true,
         margin: 15,
         nav: true,
         dots: false,
@@ -28,39 +28,48 @@ function handleApi(res) {
           "<i class='fa fa-chevron-left'></i>",
           "<i class='fa fa-chevron-right'></i>",
         ],
-        onInitialized  : counter, //When the plugin has initialized.
-        onTranslated : counter //When the translation of the stage has finished.
+        onInitialized: counter, //When the plugin has initialized.
+        onTranslated: counter, //When the translation of the stage has finished.
       });
 
-      function counter(event) {
-        var element = event.target;         // DOM element, in this example .owl-carousel
-         var items  = event.item.count;     // Number of items
-         var item = event.item.index + 1;     // Position of the current item
-       
-       // it loop is true then reset counter from 1
-       if(item > items) {
-         item = item - items
-       }
-       $(`.count-${e.id}`).html(item+" / "+items)
+    function counter(event) {
+      var element = event.target; // DOM element, in this example .owl-carousel
+      var items = event.item.count; // Number of items
+      var item = event.item.index + 1; // Position of the current item
+
+      // it loop is true then reset counter from 1
+      if (item > items) {
+        item = item - items;
       }
+      $(`.count-${e.id}`).html(item + ' / ' + items);
+    }
 
-      // PRETTY PHOTO
-      $(`.product-item-carousel a[rel^='prettyPhoto[cat_list_gallery-${e.id}]']`
-      ).prettyPhoto({
-        theme: 'facebook',
-        slideshow: 5000,
-        autoplay_slideshow: true,
-        allow_resize: true,
-        social_tools: false,
-        deeplinking: false,
-      });
-      
+    // PRETTY PHOTO
+    $(
+      `.product-item-carousel a[rel^='prettyPhoto[cat_list_gallery-${e.id}]']`
+    ).prettyPhoto({
+      theme: 'facebook',
+      slideshow: 5000,
+      autoplay_slideshow: true,
+      allow_resize: true,
+      social_tools: false,
+      deeplinking: false,
+    });
   });
+}
 
+function filterImg(mov) {
+  return (
+    mov.includes('.jpeg') ||
+    mov.includes('.jpg') ||
+    mov.includes('.webp') ||
+    mov.includes('.png') ||
+    mov.includes('.gif')
+  );
 }
 
 function imgArr(fileUrl, aciqlama, id) {
-  const imageArr = fileUrl.split('|');
+  const imageArr = fileUrl.split('|').filter(filterImg);
 
   imgHTML = imageArr.map(
     (e) => `
@@ -95,7 +104,6 @@ function boxHTML(data) {
 }
 //! /////////////////////////////////////////////////////////////////////////////////////////////
 //! /////////////////////////////////////////////////////////////////////////////////////////////
-
 
 var data = {
   kv: {
