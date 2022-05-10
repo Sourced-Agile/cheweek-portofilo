@@ -159,18 +159,6 @@ class genCategory {
       });
    }
 
-    // PRETTY PHOTO
-    $(
-      `.product-item-carousel a[rel^='prettyPhoto[cat_list_gallery-${id}]']`
-    ).prettyPhoto({
-      theme: 'facebook',
-      slideshow: 5000,
-      autoplay_slideshow: true,
-      allow_resize: true,
-      social_tools: false,
-      deeplinking: false,
-    });
-  }
 }
 
 new genCategory().loadResults(startLimit, endLimit);
