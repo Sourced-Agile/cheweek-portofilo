@@ -19,7 +19,7 @@ $(function() {
             startLimit = startLimit +11;
             console.log('ssss');
             if(startLimit<rowCount){
-              $results.after($("<div class='col-md-12 loading'>Loading...</div>").fadeIn('slow')).data("loading", true);
+              $results.after($(`<div class='col-md-12 loading text-center'><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>`).fadeIn('slow')).data("loading", true);
               new genCategory().loadResults(startLimit,endLimit);
             }
          
