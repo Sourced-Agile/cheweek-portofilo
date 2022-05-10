@@ -9504,7 +9504,7 @@ body.offcanvas #colorlib-aside {
   -o-transform: translateX(0);
   transform: translateX(0);
   width: 270px;
-  background: #fff;
+  /* background-color: #000; */
   z-index: 999;
   position: fixed;
 }
@@ -9590,7 +9590,7 @@ h5,
   }
 }
 #colorlib-aside #brand-logo {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   display: block;
   width: 100%;
   font-weight: 900;
@@ -9617,7 +9617,7 @@ h5,
   padding: 0;
 }
 #colorlib-aside #colorlib-main-menu ul li {
-  margin: 0 0 10px 0;
+  margin: 0 0 8px 0;
   padding: 0;
   list-style: none;
   font-size: 16px;
@@ -9735,10 +9735,10 @@ h5,
   cursor: pointer;
   text-decoration: none;
 }
-.colorlib-nav-toggle.active i::before,
+/* .colorlib-nav-toggle.active i::before,
 .colorlib-nav-toggle.active i::after {
   background: #000000;
-}
+} */
 .colorlib-nav-toggle.dark.active i::before,
 .colorlib-nav-toggle.dark.active i::after {
   background: #000000;
@@ -10391,7 +10391,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#778586",endCo
   color: #b3b3b3;
 }
 .blog-entry .text-2 h3 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
 }
 .blog-entry .author .img {
@@ -11442,15 +11442,20 @@ iframe#youtube {
   display: block;
 }
 @media (max-width: 991.9808px) {
+  .colorlib-nav-toggle i::after,
+  .colorlib-nav-toggle i::before,
+  .colorlib-nav-toggle i {
+    background-color: #fff;
+  }
   .main-page .menu-button-elm {
     height: 70px;
   }
   .menu-button-elm {
     position: fixed;
-    background: #fff;
+    /* background: #fff; */
     box-shadow: 0 0 4px rgb(0 0 0 / 20%);
     z-index: 100;
-    /* background-color: #000; */
+    background-color: #000;
   }
 }
 .brand-logo {
@@ -11685,7 +11690,7 @@ h5,
   color: rgb(255 255 255 / 80%);
 }
 #colorlib-aside {
-  background: rgb(0 0 0);
+  background: #000;
 }
 #colorlib-aside #colorlib-main-menu ul li a:hover {
   color: #ffffff;
