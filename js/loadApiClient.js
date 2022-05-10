@@ -70,7 +70,7 @@ function filterImg(mov) {
 }
 
 function imgArr(fileUrl, aciqlama, id) {
-  const imageArr = fileUrl.split('|').filter(filterImg);
+  const imageArr = fileUrl.split('|').filter(filterImg); //.slice(0, 3);
   imgHTML = imageArr.map(
     (e) => `
     <div class="product-item">
