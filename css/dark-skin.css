@@ -70,3 +70,8 @@ h5,
 body.offcanvas #colorlib-aside {
   background-color: #000;
 }
+.colorlib-nav-toggle i::after,
+.colorlib-nav-toggle i::before,
+.colorlib-nav-toggle i {
+  background-color: #fff;
+}

@@ -1,38 +1,47 @@
 const boxArray = [];
 const div = document.querySelectorAll('#products')[0];
 
-var endLimit =11;
-var startLimit =0;
+var endLimit = 11;
+var startLimit = 0;
 var rowCount = 0;
-$(function() {
-  
-  
-  $(window).on('scroll', function (e){
-  
+$(function () {
+  $(window).on('scroll', function (e) {
     var $this = $(this);
-    var $results = $("#products");
+    var $results = $('#products');
 
-    if (!$results.data("loading")) {
-
-        if ($(window).scrollTop() + $(window).height() == $(document).height()) {
-            endLimit = endLimit +11;
-            startLimit = startLimit +11;
-            console.log('ssss');
-            if(startLimit<rowCount){
-              $results.after($(`<div class='col-md-12 loading text-center'><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>`).fadeIn('slow')).data("loading", true);
-              new genCategory().loadResults(startLimit,endLimit);
-            }
-         
+    if (!$results.data('loading')) {
+      if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+        endLimit = endLimit + 11;
+        startLimit = startLimit + 11;
+        console.log('ssss');
+        if (startLimit < rowCount) {
+          $results
+            .after(
+              $(
+                `<div class='col-md-12 loading text-center'><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>`
+              ).fadeIn('slow')
+            )
+            .data('loading', true);
+          new genCategory().loadResults(startLimit, endLimit);
         }
+      }
     }
+  });
 });
-});
-
 
 class genCategory {
-     
-    boxHTML(data) {
-      return `
+  filterImg(mov) {
+    return (
+      mov.includes('.jpeg') ||
+      mov.includes('.jpg') ||
+      mov.includes('.webp') ||
+      mov.includes('.png') ||
+      mov.includes('.gif') ||
+      mov.includes('.svg')
+    );
+  }
+  boxHTML(data) {
+    return `
       <div  class="col-md-3 item-${data.id}">
       <div class="blog-entry product-item-box">
         <div class="product-item-box-in">
@@ -51,69 +60,67 @@ class genCategory {
       </div>
     </div>
       `;
-    }
-    imgArr(fileUrl, aciqlama, id) {
-      const imageArr = fileUrl.split('|');
-    
-     var imgHTML = imageArr.map(
-        (e) => `
+  }
+  imgArr(fileUrl, aciqlama, id) {
+    const imageArr = fileUrl.split('|').filter(this.filterImg);
+    var imgHTML = imageArr.map(
+      (e) => `
         <div class="product-item">
         <a href="https://test.sourcedagile.com/api/get/files/${e}" rel="prettyPhoto[cat_list_gallery-${id}]" title="${aciqlama}">
         <img class="owl-lazy" data-src="https://test.sourcedagile.com/api/get/files/${e}" alt="photo"></a>
         </div>`
-      );
-      return imgHTML;
-    }
-    handleApi(res) {
-      res.forEach((e) => {
-        div.insertAdjacentHTML('beforeend', this.boxHTML(e));
-        console.log(e.id);
-        //OWL CAROUSEL
-       // this.counter(e)
-        this.genPrettyAndCorusel(e.id)
-      });
-    
-    }
-     loadResults(startLimit,endLimit) {
-      var data = {
-        kv: {
-          startLimit: startLimit,
-          endLimit: endLimit,
-        },
-      };
-        data  =  JSON.stringify(data);
-        var that  = this;
-      $.ajax({
-          url: "https://test.sourcedagile.com/api/post/nasrv/48edh/22050618260504718835",
-          method: 'POST',
-          data: data,
-          contentType: "application/json",
-          crossDomain: true,
-          async: true,
-          success: function(data) {
-              var $results = $("#products");
-              $(".loading").fadeOut('fast', function() {
-                  $(this).remove();
-              });
-              that.handleApi(data.tbl[0].r);
-              rowCount  = data.kv.rowCount;
-              $results.removeData("loading");
-          }
-      });
+    );
+    return imgHTML;
+  }
+  handleApi(res) {
+    res.forEach((e) => {
+      div.insertAdjacentHTML('beforeend', this.boxHTML(e));
+      // console.log(e.id);
+      //OWL CAROUSEL
+      // this.counter(e)
+      this.genPrettyAndCorusel(e.id);
+    });
+  }
+  loadResults(startLimit, endLimit) {
+    var data = {
+      kv: {
+        startLimit: startLimit,
+        endLimit: endLimit,
+      },
     };
-   counter(event,id) {
-      var element = event.target;         // DOM element, in this example .owl-carousel
-       var items  = event.item.count;     // Number of items
-       var item = event.item.index + 1;     // Position of the current item
-     
-     // it loop is true then reset counter from 1
-     if(item > items) {
-       item = item - items
-     }
-     $(`.count-${id}`).html(item+" / "+items)
-   }
-   genPrettyAndCorusel(id) {
-     var that  = this;
+    data = JSON.stringify(data);
+    var that = this;
+    $.ajax({
+      url: 'https://test.sourcedagile.com/api/post/nasrv/48edh/22050618260504718835',
+      method: 'POST',
+      data: data,
+      contentType: 'application/json',
+      crossDomain: true,
+      async: true,
+      success: function (data) {
+        var $results = $('#products');
+        $('.loading').fadeOut('fast', function () {
+          $(this).remove();
+        });
+        that.handleApi(data.tbl[0].r);
+        rowCount = data.kv.rowCount;
+        $results.removeData('loading');
+      },
+    });
+  }
+  counter(event, id) {
+    var element = event.target; // DOM element, in this example .owl-carousel
+    var items = event.item.count; // Number of items
+    var item = event.item.index + 1; // Position of the current item
+
+    // it loop is true then reset counter from 1
+    if (item > items) {
+      item = item - items;
+    }
+    $(`.count-${id}`).html(item + ' / ' + items);
+  }
+  genPrettyAndCorusel(id) {
+    var that = this;
     $(`#${id}`).owlCarousel({
         loop: false,
         rewind: true,
@@ -152,7 +159,18 @@ class genCategory {
       });
    }
 
+    // PRETTY PHOTO
+    $(
+      `.product-item-carousel a[rel^='prettyPhoto[cat_list_gallery-${id}]']`
+    ).prettyPhoto({
+      theme: 'facebook',
+      slideshow: 5000,
+      autoplay_slideshow: true,
+      allow_resize: true,
+      social_tools: false,
+      deeplinking: false,
+    });
+  }
 }
 
-
-new genCategory().loadResults(startLimit,endLimit);
+new genCategory().loadResults(startLimit, endLimit);

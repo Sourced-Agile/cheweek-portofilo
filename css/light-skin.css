@@ -67,6 +67,9 @@ h5,
 .h5 {
   color: rgba(0, 0, 0, 0.8);
 }
+/* #colorlib-aside {
+  background-color: #fff;
+} */
 #colorlib-aside #colorlib-main-menu ul li a:after {
   background-color: #000000;
 }
@@ -85,4 +88,9 @@ h5,
 #colorlib-aside .colorlib-footer ul li a {
   color: #000;
   /* background-color: #000; */
+}
+.colorlib-nav-toggle i::after,
+.colorlib-nav-toggle i::before,
+.colorlib-nav-toggle i {
+  background-color: #000;
 }
