@@ -59,7 +59,7 @@ class genCategory {
         (e) => `
         <div class="product-item">
         <a href="https://test.sourcedagile.com/api/get/files/${e}" rel="prettyPhoto[cat_list_gallery-${id}]" title="${aciqlama}">
-        <img src="https://test.sourcedagile.com/api/get/files/${e}" alt="photo"></a>
+        <img class="owl-lazy" data-src="https://test.sourcedagile.com/api/get/files/${e}" alt="photo"></a>
         </div>`
       );
       return imgHTML;
@@ -119,6 +119,7 @@ class genCategory {
         rewind: true,
         items: 1,
         lazyLoad:true,
+        itemsScaleUp : false,
         margin: 15,
         nav: true,
         dots: false,
