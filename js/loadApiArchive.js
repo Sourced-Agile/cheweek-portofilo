@@ -1,5 +1,3 @@
-
-
 var Utility = {
     convertDate: function (d, seperator) {
         var st = "";
@@ -104,19 +102,6 @@ var Utility = {
         }
     },
 }
-
-/* $(document).on("keydown", '#search-input', function () {
-    if (e.keyCode == 13) {
-    if(document.location.href.contains('?')) {
-         
-        var url = document.location.href+"&success=yes";
-    }else{
-        var url = document.location.href+"?success=yes";
-    }
-      document.location = url;
-    }
-  }); */
-
 
 const boxArray = [];
 const div = document.querySelectorAll('#products')[0];

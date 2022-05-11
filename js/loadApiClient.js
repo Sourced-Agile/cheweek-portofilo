@@ -97,13 +97,13 @@ class genCategory {
     });
   }
   loadResults(startLimit, endLimit) {
-     var text  =  Utility.getParamFromUrl('key');
+    //  var text  =  Utility.getParamFromUrl('key');
        
     var data = {
       kv: {
         startLimit: startLimit,
         endLimit: endLimit,
-        searchText: text,
+        // searchText: text,
       },
     };
     data = JSON.stringify(data);

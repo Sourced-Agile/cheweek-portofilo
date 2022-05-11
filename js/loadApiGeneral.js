@@ -1,4 +1,3 @@
-
 var Utility = {
     convertDate: function (d, seperator) {
         var st = "";
@@ -102,43 +101,47 @@ var Utility = {
 
         }
     },
+    setActionId: function () {
+        var parts = document.location.href.split("?");
+        var params = parts[parts.length - 1];
+        var pairs = params.split("#");
+        pairsid = pairs[pairs.length - 1];
+        return pairsid;
+    }
 }
 
-/* $(document).on("keydown", '#search-input', function () {
-    if (e.keyCode == 13) {
-    if(document.location.href.contains('?')) {
-         
-        var url = document.location.href+"&success=yes";
-    }else{
-        var url = document.location.href+"?success=yes";
-    }
-      document.location = url;
-    }
-  }); */
-
-
-const boxArray = [];
-// const div = document.querySelectorAll('#colorlib-main-menu ul')[0];
+console.log(Utility.setActionId());
 
 var rowCount = 0;
+$('#breadcrumb-nav').html(`<a href="/">Əsas səhifə</a> &gt; <a id="category-map" href="#">Outdoor</a> &gt; Azercell çöl reklamı`);
 
-class genCategory {
+// function locationHashChanged(e) {
+//     console.log( location.hash );
+//     console.log( e.oldURL, e.newURL );
+//     if ( location.hash === "#22051119074104741030" ) {
+//         console.log('hello');
+//     }
+// }
+// window.locationHashChanged;
+
+
+
+class genCategoryNav {
     boxHTML(data) {
-        
         return `
         <li><a class="cat-click" href="category.html?#${data.id}">${data.ad}</a></li>
         `;
     }
     
-    handleApi(res) {
-        const div = document.querySelectorAll('#colorlib-main-menu ul')[0];
+    navApi(res) {
+        const div = document.querySelectorAll('#colorlib-main-menu ul.catNav')[0];
     // console.log(nav)
     //   console.log(arr);
     res.forEach((e) => {
       div.insertAdjacentHTML('beforeend', this.boxHTML(e));
     });
   }
-  navCategory() {
+  navCategoryNav() {
     // var text  =  Utility.getParamFromUrl('key');
     //     text  =  decodeURI(text);
     //     text = text.replaceAll('+',' ');
@@ -161,7 +164,7 @@ class genCategory {
         $('.loading').fadeOut('fast', function () {
           $(this).remove();
         });
-        that.handleApi(data.tbl[0].r);
+        that.navApi(data.tbl[0].r);
         // selectedField = data.kv.selectedField;
         $results.removeData('loading');
         // console.log(selectedField);
@@ -170,5 +173,11 @@ class genCategory {
   }
 
 }
+$(document).on("click",".cat-click",function() {
+    var url = $(this).attr('href');
+    var urlName = $(this);
+    $('#category-map').attr('href', url);
+    $('#category-map').html(urlName);
 
-new genCategory().navCategory();
+});
+new genCategoryNav().navCategoryNav();
