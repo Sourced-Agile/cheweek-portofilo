@@ -82,3 +82,9 @@ body.offcanvas #colorlib-aside {
   left: 0;
   top: 0;
 }
+.product-item-box .product-item-brand .logo-example-light {
+  display: none;
+} 
+.product-item-box .product-item-brand .logo-example-dark {
+  display: block;
+} 

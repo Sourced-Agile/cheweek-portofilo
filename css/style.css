@@ -11485,6 +11485,9 @@ body.offcanvas .brand-logo {
   top: 0;
   z-index: 1;
 }
+.product-item-box .product-item-brand .logo-example-light {
+  display: none;
+} 
 .product-item-box .product-item-brand img {
   width: 80px;
   height: 80px;
@@ -11568,6 +11571,7 @@ body.offcanvas .brand-logo {
 
 .product-item-box .product-short-desc strong {
   font-weight: 500 !important;
+  max-width: 90%;
 }
 .product-item-box:hover .product-short-desc {
   visibility: visible;

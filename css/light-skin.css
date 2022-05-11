@@ -101,3 +101,9 @@ h5,
   left: 0;
   top: 0;
 }
+.product-item-box .product-item-brand .logo-example-light {
+  display: block;
+} 
+.product-item-box .product-item-brand .logo-example-dark {
+  display: none;
+} 

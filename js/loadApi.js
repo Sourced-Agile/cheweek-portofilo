@@ -67,12 +67,12 @@ class genCategory {
       `;
   }
   imgArr(fileUrl, aciqlama, id) {
-    const imageArr = fileUrl.split('|').filter(this.filterImg).slice(-5);
+    const imageArr = fileUrl.split('|').filter(this.filterImg).slice(-10);
     var imgHTML = imageArr.map(
       (e) => `
         <div class="product-item">
         <a href="https://test.sourcedagile.com/api/get/files/${e}" rel="prettyPhoto[cat_list_gallery-${id}]" title="${aciqlama}">
-        <img class="owl-lazy" data-src="https://test.sourcedagile.com/api/get/files/${e}" data-srcset="images/img-loading-light.gif" alt="photo"></a>
+        <img class="owl-lazy" data-src="https://test.sourcedagile.com/api/get/files/${e}" alt="photo"></a>
         </div>`
     );
     return imgHTML;
