@@ -1,5 +1,5 @@
 const boxArray = [];
-const div = document.querySelectorAll('#products')[0];
+const div = document.querySelectorAll('.product-single-carousel')[0];
 
 var endLimit = 11;
 var startLimit = 0;
@@ -7,7 +7,7 @@ var rowCount = 0;
 $(function () {
   $(window).on('scroll', function (e) {
     var $this = $(this);
-    var $results = $('#products');
+    var $results = $('.product-single-carousel');
 
     if (!$results.data('loading')) {
       if ($(window).scrollTop() + $(window).height() == $(document).height()) {

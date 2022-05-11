@@ -9590,7 +9590,7 @@ h5,
   }
 }
 #colorlib-aside #brand-logo {
-  margin-bottom: 2em;
+  margin-bottom: 1.5625rem;
   display: block;
   width: 100%;
   font-weight: 900;
@@ -9617,11 +9617,11 @@ h5,
   padding: 0;
 }
 #colorlib-aside #colorlib-main-menu ul li {
-  margin: 0 0 10px 0;
+  margin: 0 0 8px 0;
   padding: 0;
   list-style: none;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
 }
 #colorlib-aside #colorlib-main-menu ul li a {
   color: rgba(0, 0, 0, 0.4);
@@ -10438,7 +10438,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#778586",endCo
 }
 
 .form-control {
-  height: 52px !important;
+  height: 30px !important;
   background: #fff !important;
   color: #000000 !important;
   font-size: 18px;
@@ -10459,7 +10459,17 @@ textarea.form-control {
   opacity: 0;
   visibility: hidden;
 }
-
+#colorlib-aside .search-form {
+  background: #252525;
+  margin-bottom: 1.25rem;
+  margin: 0;
+  margin-bottom: 1.25rem;
+}
+#colorlib-aside .form-control {
+  background: #252525 !important;
+  color: #fff !important;
+  border: 1px solid #707070;
+}
 .about-author img {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
