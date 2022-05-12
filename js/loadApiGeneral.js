@@ -109,21 +109,9 @@ var Utility = {
         return pairsid;
     }
 }
-
-console.log(Utility.setActionId());
-
 var rowCount = 0;
-$('#breadcrumb-nav').html(`<a href="/">Əsas səhifə</a> &gt; <a id="category-map" href="#">Outdoor</a>`);
-
-// function locationHashChanged(e) {
-//     console.log( location.hash );
-//     console.log( e.oldURL, e.newURL );
-//     if ( location.hash === "#22051119074104741030" ) {
-//         console.log('hello');
-//     }
-// }
-// window.locationHashChanged;
-
+var nams = Utility.getParamFromUrl('menuname')
+$('#breadcrumb-nav').html(`<a href="/">Əsas səhifə</a> &gt; <a id="category-map" href="#">${decodeURI(nams)}</a>`);
 
 
 class genCategoryNav {
@@ -131,7 +119,7 @@ class genCategoryNav {
 
     boxHTML(data) {
         return `
-        <li><a class="cat-click" href="category.html?#${data.id}">${data.ad}</a></li>
+        <li><a class="cat-click" href="category.html?menuname=${data.ad}&menu=${data.id}">${data.ad}</a></li>
         `;
     }
     
@@ -178,10 +166,5 @@ class genCategoryNav {
   }
 
 }
-$(document).on("click",".cat-click",function() {
-    var url = $(this).attr('href');
-    var urlName = $(this).text();
-    $('#category-map').attr('href', url);
-    $('#category-map').html(urlName);
-});
+
 new genCategoryNav().navCategoryNav();

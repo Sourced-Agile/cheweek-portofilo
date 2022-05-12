@@ -68,7 +68,8 @@ class genCategory {
       `;
   }
   imgArr(fileUrl, aciqlama, id) {
-    const imageArr = fileUrl.split('|').filter(this.filterImg).slice(-10);
+    try {
+      const imageArr = fileUrl.split('|').filter(this.filterImg).slice(-10);
     var imgHTML = imageArr.map(
       (e) => `
         <div class="product-item">
@@ -77,6 +78,10 @@ class genCategory {
         </div>`
     );
     return imgHTML;
+    } catch (error) {
+      return '';
+    }
+    
   }
   imgCountArr(fileUrl) {
     const imageCountArr = fileUrl.split('|');
@@ -93,6 +98,7 @@ class genCategory {
     });
   }
   loadResults(startLimit, endLimit) {
+    var fkKateqoriyaId = Utility.getParamFromUrl('menu');
     var text  =  Utility.getParamFromUrl('key');
         text  =  decodeURI(text).split('+')
     var data = {
@@ -100,6 +106,7 @@ class genCategory {
         startLimit: startLimit,
         endLimit: endLimit,
         searchText: text,
+        fkKateqoriyaId: fkKateqoriyaId,
       },
     };
     data = JSON.stringify(data);
@@ -175,4 +182,11 @@ class genCategory {
 
 }
 
+$(document).on("click",".cat-click",function() {
+  var url = $(this).attr('href');
+  var urlName = $(this).text();
+  $('#category-map').attr('href', url);
+  $('#category-map').html(urlName);
+  new genCategory().loadResults(startLimit, endLimit);
+});
 new genCategory().loadResults(startLimit, endLimit);
