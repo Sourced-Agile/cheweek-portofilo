@@ -115,4 +115,15 @@ h5,
   background: #fff !important;
   color: #000 !important;
   border: 1px solid #ced4da;
-} 
+}
+#colorlib-aside #colorlib-main-menu ul.navloading li.shimmer { 
+  background:#cbcbcb -webkit-gradient(linear, 100% 0, 0 0, from(#cbcbcb), color-stop(0.5, rgb(255 255 255 / 27%)), to(#cbcbcb));
+}
+#colorlib-aside #colorlib-main-menu ul.pageNav li a {
+  background: transparent;
+  border: 1px solid #999999;
+}
+#colorlib-aside #colorlib-main-menu ul.pageNav li a:hover {
+  background: #999999;
+  color: #fff;
+}

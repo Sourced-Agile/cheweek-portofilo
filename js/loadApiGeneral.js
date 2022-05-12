@@ -113,7 +113,7 @@ var Utility = {
 console.log(Utility.setActionId());
 
 var rowCount = 0;
-$('#breadcrumb-nav').html(`<a href="/">Əsas səhifə</a> &gt; <a id="category-map" href="#">Outdoor</a> &gt; Azercell çöl reklamı`);
+$('#breadcrumb-nav').html(`<a href="/">Əsas səhifə</a> &gt; <a id="category-map" href="#">Outdoor</a>`);
 
 // function locationHashChanged(e) {
 //     console.log( location.hash );
@@ -127,6 +127,8 @@ $('#breadcrumb-nav').html(`<a href="/">Əsas səhifə</a> &gt; <a id="category-m
 
 
 class genCategoryNav {
+
+
     boxHTML(data) {
         return `
         <li><a class="cat-click" href="category.html?#${data.id}">${data.ad}</a></li>
@@ -161,9 +163,12 @@ class genCategoryNav {
       async: true,
       success: function (data) {
         var $results = $('#colorlib-main-menu ul');
-        $('.loading').fadeOut('fast', function () {
-          $(this).remove();
-        });
+        setTimeout(function() {
+                $('.navloading').fadeOut('fast', function () {
+                $(this).remove();
+                $('.pageNav, .catNav').show();
+                });
+            }, 1500);
         that.navApi(data.tbl[0].r);
         // selectedField = data.kv.selectedField;
         $results.removeData('loading');
@@ -175,9 +180,8 @@ class genCategoryNav {
 }
 $(document).on("click",".cat-click",function() {
     var url = $(this).attr('href');
-    var urlName = $(this);
+    var urlName = $(this).text();
     $('#category-map').attr('href', url);
     $('#category-map').html(urlName);
-
 });
 new genCategoryNav().navCategoryNav();
