@@ -29,6 +29,8 @@ $(function () {
   });
 });
 
+// var catname = Utility.getParamFromUrl('category');
+
 class genCategory {
   filterImg(mov) {
     return (
@@ -47,29 +49,29 @@ class genCategory {
       <div class="blog-entry product-item-box">
         <div class="product-item-box-in">
         <div id='${data.id}'  class="owl-carousel product-item-carousel">
-        ${this.imgArr(data.fileUrl, data.aciqlama, data.id).join('')}
+        ${this.imgArr(data.fayl, data.aciqlama, data.id).join('')}
         </div>
         <span class="product-item-numbers count-${data.id}">0/0</span>
         <span class="product-id-name"></span>
-        <a href="detail.html">
+        <a href="detail.html?catid=${data.id}&category=${Utility.getRemoveHTMLTags(data.mezmun)}">
           <div class="d-flex">
             <span class="product-short-desc d-flex">
-              <strong class="mr-auto">${ data.aciqlama}</strong>
-              <strong clas="float-right"><i class="fa fa-image"></i> ${this.imgCountArr(data.fileUrl)}</strong>
+              <strong class="mr-auto"> ${Utility.getEllipsis(data.aciqlama,75)}</strong>
+              <strong clas="float-right"><i class="fa fa-image"></i> ${this.imgCountArr(data.fayl)}</strong>
             </span>
           </div>
         </a>
         </div>
         <div class="text text-2 pt-1 mt-1">
-          <h3 class="mb-2"><a href="detail.html">${data.mezmun}</a></h3> 
+          <h3 class="mb-2"><a href="detail.html?catid=${data.id}&category=${Utility.getRemoveHTMLTags(data.mezmun)}">${Utility.getRemoveHTMLTags(data.mezmun)}</a></h3> 
         </div>
       </div>
     </div>
       `;
   }
-  imgArr(fileUrl, aciqlama, id) {
+  imgArr(fayl, aciqlama, id) {
     try {
-      const imageArr = fileUrl.split('|').filter(this.filterImg).slice(-10);
+      const imageArr = fayl.split('|').filter(this.filterImg).slice(-10);
     var imgHTML = imageArr.map(
       (e) => `
         <div class="product-item">
@@ -83,8 +85,8 @@ class genCategory {
     }
     
   }
-  imgCountArr(fileUrl) {
-    const imageCountArr = fileUrl.split('|');
+  imgCountArr(fayl) {
+    const imageCountArr = fayl.split('|');
     var imgCountHTML = imageCountArr.length;
     return imgCountHTML;
   }

@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
     
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/fontawesome-5-pro-master/css/all.css">
+    <link rel="stylesheet" href="js/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="js/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
 
     <link rel="stylesheet" href="css/aos.css">
@@ -22,7 +23,7 @@
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
 
-    <link rel="stylesheet" href="css/fontawesome-5-pro-master/css/all.css">
+
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="js/prettyPhoto/css/prettyPhoto.css" />
@@ -38,57 +39,50 @@
 		<aside id="colorlib-aside" role="complementary" class="js-fullheight text-left">
       
 		</aside> <!-- END COLORLIB-ASIDE -->
-		<div id="colorlib-main">
-            
-			
+		<div id="colorlib-main">	
            
-			<section class="ftco-section ftco-section-detail" id="portfolio">
+			<section class="ftco-section ftco-section-detail">
 				  <div class="row justify-content-center mb-2 pb-2">
 					  <div class="col-md-8 heading-section text-left ftco-animate">
-                <h1 class="mb-1">Azercell çöl reklamı</h1>
-                <div><span class="product-id">#0001</span> | <span>Outdoor</span> | <span class="product-single-item-numbers">1 / 3</span></div>
+                <h1 class="mb-1" id="ItemdetailTitle">Azercell çöl reklamı</h1>
+                <div><span class="product-id">#<span id="ItemDetailCatNum"></span></span> | <span id="ItemDetailCatName">Outdoor</span> | <span class="product-single-item-numbers">1 / 3</span></div>
 					</div>
-            <div class="col-md-4"><a href="#">Əsas səhifə</a> > <a href="#">Outdoor</a> > Azercell çöl reklamı</div>
+            <div class="col-md-4" id="ItemDetailPageMap"></div>
 				  </div>
 					  <div class="row">
 						  <div class="col-md-12">
-							  <div class="blog-entry ftco-animate">
-								  
-                                <div class="owl-carousel product-single-carousel">
-                                    <div class="product-item">
-                                        <img src="images/image_1.jpg" alt="photo">
-                                    </div>
-                                    <div class="product-item">
-                                        <img src="images/image_2.jpg" alt="photo">
-                                    </div>
-                                    <div class="product-item">
-                                        <img src="images/image_3.jpg" alt="photo">
-                                    </div>
-                                </div>
+							  <div id="item-detail" class="blog-entry ftco-animate">
+              
+                    <div class="owl-carousel product-single-carousel">
+                        <!-- <div class="product-item">
+                            <img src="images/image_1.jpg" alt="photo">
+                        </div>
+                        <div class="product-item">
+                            <img src="images/image_2.jpg" alt="photo">
+                        </div>
+                        <div class="product-item">
+                            <img src="images/image_3.jpg" alt="photo">
+                        </div> -->
+                    </div>
                                   
 								  <div class="text text-2 pt-1 mt-1">
-									 <div class="mt-2">
-                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
-                                        <p>
-                                            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
-                                        </p>
-                                     </div>
-                                     <div class="tag-widget post-tag-container mb-5 mt-5">
-                                        <div class="tagcloud">
-                                          <a href="#" class="tag-cloud-link">KEYWORDS</a>
-                                          <a href="#" class="tag-cloud-link">KEYWORDS</a>
-                                          <a href="#" class="tag-cloud-link">KEYWORDS</a>
-                                          <a href="#" class="tag-cloud-link">KEYWORDS</a>
-                                        </div>
-                                      </div>
+									 <div class="mt-2" id="ItemdetailDesc"></div>
+                    <div class="tag-widget post-tag-container mb-5 mt-5">
+                      <div class="tagcloud">
+                        <a href="#" class="tag-cloud-link">KEYWORDS</a>
+                        <a href="#" class="tag-cloud-link">KEYWORDS</a>
+                        <a href="#" class="tag-cloud-link">KEYWORDS</a>
+                        <a href="#" class="tag-cloud-link">KEYWORDS</a>
+                      </div>
+                    </div>
 								  </div>
 							  </div>
-                        </div>
+              </div>
 				</div>
         </section>
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div id="footer-partners" class="row mb-4">
-   
+    
       </div>
         <div class="row">
           <div class="col-md-12">

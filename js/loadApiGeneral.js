@@ -107,6 +107,23 @@ var Utility = {
         var pairs = params.split("#");
         pairsid = pairs[pairs.length - 1];
         return pairsid;
+    },
+   getEllipsis: function (command, characters) {
+        for (var i = command.length; i >= 0; i--) {
+            if (command.substring(0, i).length < characters) {
+                if (i < command.length) {
+                    command = command.substring(0, i) + "...";
+                }
+                return command;
+            }
+        }
+    },
+   getRemoveHTMLTags: function (intext) {
+        var html = intext;
+        var div = document.createElement("div");
+        div.innerHTML = html;
+        var intext = div.textContent || div.innerText || "";
+        return intext;
     }
 }
 var rowCount = 0;
@@ -151,12 +168,10 @@ class genCategoryNav {
       async: true,
       success: function (data) {
         var $results = $('#colorlib-main-menu ul');
-        setTimeout(function() {
-                $('.navloading').fadeOut('fast', function () {
-                $(this).remove();
-                $('.pageNav, .catNav').show();
-                });
-            }, 1500);
+        $('.navloading').fadeOut('fast', function () {
+            $(this).remove();
+            $('.pageNav, .catNav').show();
+            });
         that.navApi(data.tbl[0].r);
         // selectedField = data.kv.selectedField;
         $results.removeData('loading');
