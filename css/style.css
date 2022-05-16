@@ -9504,7 +9504,7 @@ body.offcanvas #colorlib-aside {
   -o-transform: translateX(0);
   transform: translateX(0);
   width: 270px;
-  background: #fff;
+  background: #000;
   z-index: 999;
   position: fixed;
 }
@@ -9757,7 +9757,7 @@ h5,
 }
 .colorlib-nav-toggle.active i::before,
 .colorlib-nav-toggle.active i::after {
-  background: #000000;
+  background: #fff;
 }
 .colorlib-nav-toggle.dark.active i::before,
 .colorlib-nav-toggle.dark.active i::after {
@@ -9774,11 +9774,11 @@ h5,
   display: inline-block;
   width: 30px;
   height: 2px;
-  color: #000000;
+  color: #fff;
   font: bold 14px/0.4 Helvetica;
   text-transform: uppercase;
   text-indent: -55px;
-  background: #000000;
+  background: #fff;
   -webkit-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
@@ -9788,7 +9788,7 @@ h5,
   content: '';
   width: 30px;
   height: 2px;
-  background: #000000;
+  background: #fff;
   position: absolute;
   left: 0;
   -moz-transition: all 0.2s ease;
@@ -11353,7 +11353,7 @@ iframe#youtube {
 
 @media (max-width: 768px) {
   .hero-wrap .text h1 {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
   }
   .hero-wrap .text {
     text-align: center !important;
@@ -11367,6 +11367,8 @@ iframe#youtube {
     justify-content: center;
   }
   .hero-wrap .text .desc p {
+    font-size: 15px;
+    text-align: center !important;
   }
 }
 .product-id-name {
@@ -11477,10 +11479,10 @@ iframe#youtube {
   }
   .menu-button-elm {
     position: fixed;
-    background: #fff;
+    /* background: #fff; */
     box-shadow: 0 0 4px rgb(0 0 0 / 20%);
     z-index: 100;
-    /* background-color: #000; */
+    background-color: #000;
   }
 }
 .brand-logo {

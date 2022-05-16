@@ -39,9 +39,6 @@ h5,
 #colorlib-aside .colorlib-footer {
   color: rgba(0, 0, 0, 0.4);
 }
-#colorlib-aside {
-  background: rgb(245 245 245);
-}
 #colorlib-aside #colorlib-main-menu ul li a:hover {
   color: black;
 }
@@ -89,10 +86,16 @@ h5,
   color: #000;
   /* background-color: #000; */
 }
+body.offcanvas #colorlib-aside, #colorlib-aside {
+  background: rgb(245 245 245);
+}
 .colorlib-nav-toggle i::after,
 .colorlib-nav-toggle i::before,
 .colorlib-nav-toggle i {
   background-color: #000;
+}
+.colorlib-nav-toggle.active i::before, .colorlib-nav-toggle.active i::after {
+  background: #000;
 }
 .owl-carousel.product-item-carousel .product-item {
   background: url("../images/img-loading-dark_light_1.gif") no-repeat center center;
