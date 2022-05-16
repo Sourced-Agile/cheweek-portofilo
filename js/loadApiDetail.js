@@ -12,7 +12,7 @@ class genDetail {
   imgArr(e, kv) {
     return `
     <div class="product-item">
-      <a href="https://test.sourcedagile.com/api/get/files/${e.fayl}" rel="prettyPhoto[cat_single_gallery]" title="${e.kaName}">
+      <a href="https://test.sourcedagile.com/api/get/files/${e.fayl}" rel="prettyPhoto[cat_single_gallery]" title="${e.kaName}: ${e.aciqlama}">
       <img class="owl-lazy" data-src="https://test.sourcedagile.com/api/get/files/${e.fayl}" alt="photo"></a>
     </div>`
     }
