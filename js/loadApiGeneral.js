@@ -128,8 +128,11 @@ var Utility = {
 }
 var rowCount = 0;
 var nams = Utility.getParamFromUrl('menuname')
-$('#breadcrumb-nav').html(`<a href="/">Əsas səhifə</a> &gt; <a id="category-map" href="#">${decodeURI(nams)}</a>`);
 
+$(document).on("click",".open-cat-click ",function() {
+    $(this).closest('li').toggleClass('open');
+    $(this).find('span').toggleClass('icon-arrow_drop_up icon-arrow_drop_down');
+});
 
 class genCategoryNav {
 
@@ -141,7 +144,7 @@ class genCategoryNav {
     }
     
     navApi(res) {
-        const div = document.querySelectorAll('#colorlib-main-menu ul.catNav')[0];
+        const div = document.querySelectorAll('#colorlib-main-menu ul.catNav li ul.subNav')[0];
     // console.log(nav)
     //   console.log(arr);
     res.forEach((e) => {
@@ -167,7 +170,7 @@ class genCategoryNav {
       crossDomain: true,
       async: true,
       success: function (data) {
-        var $results = $('#colorlib-main-menu ul');
+        var $results = $('#colorlib-main-menu ul.catNav');
         $('.navloading').fadeOut('fast', function () {
             $(this).remove();
             $('.pageNav, .catNav').show();

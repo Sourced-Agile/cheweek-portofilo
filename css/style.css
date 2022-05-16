@@ -9617,6 +9617,37 @@ h5,
   padding: 0;
   margin-top: 40px;
 }
+#colorlib-aside #colorlib-main-menu ul li ul.subNav {
+  margin-top: 0px;
+  padding-left: 20px;
+}
+#colorlib-aside #colorlib-main-menu ul li ul.subNav {
+  display: none;
+}
+#colorlib-aside #colorlib-main-menu ul li.open ul.subNav {
+  display: block;
+}
+#colorlib-main-menu ul li a.open-cat-click {
+  display: inline-block;
+  padding-top: 0 !important;
+}
+#colorlib-main-menu ul li a .menu-dropdown-toggle {
+  position: relative;
+  right: 0;
+  top: 5px;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  cursor: pointer;
+}
+#colorlib-main-menu ul li a .menu-dropdown-toggle {
+  font-family: "FontAwesome";
+  text-decoration: none;
+  content: '\f107';
+  color: var(--sw-front-color);
+  font-size: 25px;
+  right: 0;
+}
 #colorlib-aside #colorlib-main-menu ul li {
   margin: 0 0 8px 0;
   padding: 0;
