@@ -3,7 +3,7 @@ a:hover,
 a:focus {
   color: #ffffff;
 }
-.ftco-section {
+body, .ftco-section {
   background-color: #252525;
 }
 h1,

@@ -101,6 +101,7 @@ class genCategory {
   }
   loadResults(startLimit, endLimit) {
     var fkKateqoriyaId = Utility.getParamFromUrl('menu');
+         
     var text  =  Utility.getParamFromUrl('key');
         text  =  decodeURI(text).split('+')
     var data = {

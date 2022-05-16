@@ -127,9 +127,11 @@ var Utility = {
     }
 }
 var rowCount = 0;
-var nams = Utility.getParamFromUrl('menuname')
+var nams = Utility.getParamFromUrl('menuname');
+$('#breadcrumb-nav').html(`<a href="/">Əsas səhifə</a> &gt; <a id="category-map" href="#">${decodeURI(nams)}</a>`);
 
 $(document).on("click",".open-cat-click ",function() {
+    $('body').addClass('offcanvas');
     $(this).closest('li').toggleClass('open');
     $(this).find('span').toggleClass('icon-arrow_drop_up icon-arrow_drop_down');
 });
@@ -139,7 +141,7 @@ class genCategoryNav {
 
     boxHTML(data) {
         return `
-        <li><a class="cat-click" href="category.html?menuname=${data.ad}&menu=${data.id}">${data.ad}</a></li>
+        <li><a class="cat-click" data-id="${data.id}" href="category.html?menuname=${data.ad}&menu=${data.id}">${data.ad}</a></li>
         `;
     }
     
@@ -176,7 +178,31 @@ class genCategoryNav {
             $('.pageNav, .catNav').show();
             });
         that.navApi(data.tbl[0].r);
-        // selectedField = data.kv.selectedField;
+        
+        // site.com/about
+        var navActiveClass = window.location.href;
+    // $('#nav li a').each(function(){
+    //     if (navActiveClass === '/index.html') {
+    //         $('[data-id='+navActiveClass+']').closest('li').addClass('colorlib-active')
+    //     }
+    //     if (navActiveClass === '/clients.html') {
+    //         $('[data-id='+navActiveClass+']').closest('li').addClass('colorlib-active')
+    //     }
+    // });
+
+    $(function($) {
+        var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
+        $('#colorlib-main-menu ul li a ').each(function() {
+         if (this.href === path || this.href === '/') {
+          $(this).closest('li').addClass('colorlib-active');
+         }
+        });
+    });
+
+    var fkKateqoriyaId = Utility.getParamFromUrl('menu');
+        if(fkKateqoriyaId){
+            $('[data-id='+fkKateqoriyaId+']').closest('li').addClass('colorlib-active');
+          }
         $results.removeData('loading');
         // console.log(selectedField);
       },

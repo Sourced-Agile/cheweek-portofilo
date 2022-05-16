@@ -1,9 +1,9 @@
 a,
 a:hover,
 a:focus {
-  color: #ffffff;
+  color: #333333;
 }
-.ftco-section {
+body, .ftco-section {
   background-color: #ffffff;
 }
 h1,
@@ -38,6 +38,9 @@ h5,
 #colorlib-aside #colorlib-main-menu ul li a,
 #colorlib-aside .colorlib-footer {
   color: rgba(0, 0, 0, 0.4);
+}
+body.offcanvas #colorlib-aside {
+  background: rgb(245 245 245);
 }
 #colorlib-aside #colorlib-main-menu ul li a:hover {
   color: black;
