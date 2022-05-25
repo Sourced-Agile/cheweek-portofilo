@@ -18,6 +18,11 @@ h5,
 .h5 {
   color: rgb(255 255 255 / 80%);
 }
+.form-control {
+  background: #252525 !important;
+  color: #fff !important;
+  border: 1px solid #707070;
+}
 .blog-entry .text h3 a,
 #colorlib-aside #colorlib-main-menu ul li.colorlib-active a,
 .tagcloud a,

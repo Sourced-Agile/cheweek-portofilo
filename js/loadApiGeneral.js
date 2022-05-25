@@ -180,7 +180,7 @@ class genCategoryNav {
         that.navApi(data.tbl[0].r);
         
         // site.com/about
-        var navActiveClass = window.location.href;
+       // var navActiveClass = window.location.href;
     // $('#nav li a').each(function(){
     //     if (navActiveClass === '/index.html') {
     //         $('[data-id='+navActiveClass+']').closest('li').addClass('colorlib-active')

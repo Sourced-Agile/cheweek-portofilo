@@ -67,6 +67,11 @@ h5,
 .h5 {
   color: rgba(0, 0, 0, 0.8);
 }
+.form-control {
+  background: #fff !important;
+  color: #000 !important;
+  border: 1px solid #ced4da;
+}
 /* #colorlib-aside {
   background-color: #fff;
 } */
