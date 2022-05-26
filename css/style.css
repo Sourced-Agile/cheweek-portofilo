@@ -10667,7 +10667,7 @@ textarea.form-control {
 }
 
 #map {
-  height: 400px;
+  height: calc(100vh - 280px);
   width: 100%;
 }
 @media (max-width: 991.9808px) {
@@ -11606,7 +11606,7 @@ body.offcanvas .brand-logo {
 .product-item-box:hover .product-id-name {
   bottom: 100%;
   transform: translateY(100%);
-  opacity: 0.2;
+  opacity: 1;
 }
 .product-item-box .product-short-desc {
   visibility: hidden;
@@ -11843,4 +11843,28 @@ h5,
   -webkit-box-pack: center !important;
   -ms-flex-pack: center !important;
   justify-content: center !important;
+}
+.lang-dropdown {
+  margin: 0 15px;
+}
+.lang-dropdown .dropdown-toggle {
+  color: #fff !important;
+  background-color: transparent !important;
+  border: none;
+  padding: 0 0;
+  height: auto;
+  font-size: 14px;
+}
+ .lang-dropdown.show > .btn-secondary.dropdown-toggle {
+  color: #fff;
+  background-color: transparent;
+}
+.lang-dropdown .dropdown-menu {
+  padding: 0 !important;
+  width: 30px;
+  min-width: 30px;
+}
+.lang-dropdown .dropdown-item {
+  padding: 0rem 0.25rem;
+  font-size: 13px;
 }

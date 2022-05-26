@@ -21,7 +21,6 @@ $(function () {
               ).fadeIn("slow")
             )
             .data("loading", true);
-            // $("#products").remove();
             new genCategory().loadResults(startLimit, endLimit);
         }
       }
@@ -67,13 +66,13 @@ class genCategory {
            <div class="d-flex">
             <span class="product-short-desc d-flex">
               <strong class="mr-auto"> ${Utility.getEllipsis(o.aciqlama || "...", 75)}</strong>
-              <strong clas="float-right"><i class="fa fa-image"></i> ${/* this.imgCountArr(o.fileUrl )*/''}</strong>
+              <strong clas="float-right"><i class="fa fa-image"></i> ${/* this.imgCountArr(o.fileUrl )*/'15'}</strong>
             </span>
-          </div>
+          </div
            </div>`
   }
   handleApi(resKey, resImg) {
-        console.log(resImg);
+   
     resKey.forEach((e) => {
      
       div.insertAdjacentHTML('beforeend', this.boxHTML(e));
@@ -121,9 +120,7 @@ class genCategory {
           $(this).remove();
         });
         that.handleApi(data.tbl[0].r, data.tbl[2].r);
-        rowCount = data.kv.rowCount;
-        console.log(data.tbl[2].r);
-    
+        rowCount = data.kv.rowCount;    
         $results.removeData("loading");
       },
     });
@@ -187,6 +184,6 @@ $(document).on("click", ".cat-click", function () {
   var urlName = $(this).text();
   $("#category-map").attr("href", url);
   $("#category-map").html(urlName);
-  // new genCategory().loadResults(startLimit, endLimit);
+  new genCategory().loadResults(startLimit, endLimit);
 });
 new genCategory().loadResults(startLimit, endLimit);

@@ -109,11 +109,11 @@ AOS.init({
 		items: 1,
 		margin: 10,
 		nav: true,
-		dots: true,
-		autoplay: false,
+		dots: false,
+		autoplay: true,
 		autoplayHoverPause:true,
 		smartSpeed: 300,
-		autoplayTimeout: 8000,
+		autoplayTimeout: 4000,
 		responsiveClass:true,
 		responsive:{
 			0:{
@@ -237,5 +237,9 @@ AOS.init({
         '<link rel="stylesheet" id="skin-link-id" href="css/dark-skin.css" />'
       );
     }
+  });
+  $('body').on('click', '.lang-dropdown .dropdown-menu .dropdown-item', function (event) {
+      var newlang =  $(this).text();
+      $(this).closest('.dropdown').find('.dropdown-toggle').text(newlang);
   });
 })(jQuery);

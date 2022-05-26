@@ -12,13 +12,22 @@ class genDetail {
   imgArr(e, kv) {
     return `
     <div class="product-item">
-      <a href="https://test.sourcedagile.com/api/get/files/${e.fayl}" rel="prettyPhoto[cat_single_gallery]" title="${e.kaName}: ${e.aciqlama}">
-      <img class="owl-lazy" data-src="https://test.sourcedagile.com/api/get/files/${e.fayl}" alt="photo"></a>
+      <a href="https://test.sourcedagile.com/api/get/files/${e.fileUrl}" rel="prettyPhoto[cat_single_gallery]" title="${e.kaName}: ${e.aciqlama}">
+      <img class="owl-lazy" data-src="https://test.sourcedagile.com/api/get/files/${e.fileUrl}" alt="photo"></a>
+      <div class="desc">${e.kaName}: ${e.aciqlama}</div>
     </div>`
+    }
+
+    tagApi(kv) {
+      const infkTagId = kv.fkTagId.split(',');
+      var atagIdList = infkTagId;
+      console.log(atagIdList);
+      return atagIdList;
     }
 
   handleApi(res,kv) {
     var that = this;
+
 
     $('#ItemDetailPageMap').html(`<a href="#">Əsas səhifə</a> > <a href="category.html?menuname=${Utility.getRemoveHTMLTags(kv.categoryName)}&menu=${kv.categoryId}">${Utility.getRemoveHTMLTags(kv.categoryName)}</a> > ${Utility.getRemoveHTMLTags(kv.mezmun)}`);
     $('#ItemDetailCatNum').text(`${kv.kataloqNo}`);
@@ -27,8 +36,13 @@ class genDetail {
     $('#ItemdetailDesc').text(`${Utility.getRemoveHTMLTags(kv.aciqlama)}`);
     var div = $('.product-single-carousel');
     res.forEach((e) => {
-    
-      div.append(that.imgArr(e, kv));
+      
+      if(e.nov =='1077'){
+        div.append(that.imgArr(e, kv));
+      }else{
+        div.append(that.imgArr(e, kv));
+      }
+      
     });
     var that = this;
    
@@ -72,9 +86,11 @@ class genDetail {
 
   loadResults() {
     var fkKataloqId = Utility.getParamFromUrl('catid');
+    
     // var text  =  Utility.getParamFromUrl('key');
     //     text  =  decodeURI(text).split('+')
     var data = {
+      
       kv: {
         // startLimit: startLimit,
         // endLimit: endLimit,
@@ -96,6 +112,7 @@ class genDetail {
           $(this).remove();
         });
         that.handleApi(data.tbl[0].r, data.kv);
+        that.tagApi(data.kv);
         rowCount = data.kv.rowCount;
         $results.removeData('loading');
       },
@@ -113,6 +130,35 @@ class genDetail {
     $(`.product-single-item-numbers`).html(item + ' / ' + items);
   }
 
+  loadTag() {
+    var that = this;
+    var data = {
+      kv: {
+        fkTagId: fkTagId,
+      },
+      
+    };
+
+    data = JSON.stringify(data);
+    var that = this;
+    $.ajax({
+      url: 'https://test.sourcedagile.com/api/post/nasrv/48edh/22052611154902976600',
+      method: 'POST',
+      data: data,
+      contentType: 'application/json',
+      crossDomain: true,
+      async: true,
+      success: function (data) {
+       console.log(data.tbl[0].r);
+       
+         that.handleApi(data.tbl[0].r, data.kv);
+        // rowCount = data.kv.rowCount;
+        // $results.removeData('loading');
+      },
+    });
+  }
+
+
 }
 
 $(document).on("click",".cat-click",function() {
@@ -120,6 +166,7 @@ $(document).on("click",".cat-click",function() {
   var urlName = $(this).text();
   $('#category-map').attr('href', url);
   $('#category-map').html(urlName);
-  new genDetail().loadResults(startLimit, endLimit);
+  new genDetail().loadTag();
 });
 new genDetail().loadResults(startLimit, endLimit);
+new genDetail().loadTag();

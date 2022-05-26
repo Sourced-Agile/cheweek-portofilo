@@ -138,3 +138,6 @@ body.offcanvas #colorlib-aside, #colorlib-aside {
   background: #999999;
   color: #fff;
 }
+.lang-dropdown .dropdown-toggle {
+  color: #000 !important; 
+}
