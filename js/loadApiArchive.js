@@ -1,108 +1,3 @@
-var Utility = {
-    convertDate: function (d, seperator) {
-        var st = "";
-        var sep = (seperator) ? seperator : global_var.data_eliminator;
-        try {
-            st = d.substring(4, 6) + sep + d.substring(6, 8) + sep + d.substring(0, 4)
-        } catch (e) {
-        }
-        return st;
-    }
-    ,
-    convertTime: function (d, seperator) {
-        var st = "";
-        var sep = (seperator) ? seperator : global_var.time_eliminator;
-        try {
-            st = d.substring(0, 2) + sep + d.substring(2, 4) 
-        } catch (e) {
-        }
-        return st;
-    },
-    convertDTpicker: function (d, seperator,type) {
-        var st = "";
-        var sep = (seperator) ? seperator : global_var.data_eliminator;
-        try {
-            if(type&&type==='mm/dd/yy'){
-                st = d.substring(4, 6) + sep +  d.substring(6, 8) + sep +d.substring(0, 4) 
-
-            }
-            else{
-                st = d.substring(0, 4) + sep + d.substring(4, 6) + sep + d.substring(6, 8)
-
-            }
-
-        } catch (e) {
-        }
-        return st;
-    },
-    convertTMpicker: function (d, seperator) {
-        var st = "";
-        var sep = (seperator) ? seperator : global_var.time_eliminator;
-        try {
-            st = d.substring(0, 2) + sep + d.substring(2, 4);
-        } catch (e) {
-        }
-        return st;
-    },
-    focus: function (id) {
-        setTimeout(function () {
-            $('#' + id).focus();
-        }, 600);
-    },
-    addParamToUrl: function (param, value) {
-        var newurl = Utility.replaceUrlParam(document.location.href, param, value);
-        window.history.pushState({path: newurl}, '', newurl);
-    },
-    replaceUrlParam: function (url, paramName, paramValue) {
-        if (paramValue == null) {
-            paramValue = '';
-        }
-        var pattern = new RegExp('\\b(' + paramName + '=).*?(&|#|$)');
-        if (url.search(pattern) >= 0) {
-            return url.replace(pattern, '$1' + paramValue + '$2');
-        }
-        url = url.replace(/[?#]$/, '');
-        return url + (url.indexOf('?') > 0 ? '&' : '?') + paramName + '=' + paramValue;
-    },
-    getParamFromUrl: function (param) {
-        var parts = document.location.href.split("?");
-        var params = parts[parts.length - 1];
-        var pairs = params.split("&");
-        var res = '';
-        for (var i = 0; i < pairs.length; i++) {
-            var k = pairs[i].split("=")[0];
-            var v = pairs[i].split("=")[1];
-            if (k === param) {
-                res = v;
-                break;
-            }
-        }
-        return res.replace("#", "");
-    },
-    setParamOnLoad: function () {
-        var parts = document.location.href.split("?");
-        var params = parts[parts.length - 1];
-        var pairs = params.split("&");
-        for (var i = 0; i < pairs.length; i++) {
-            var k = pairs[i].split("=")[0];
-            var v = pairs[i].split("=")[1];
-            try {
-                v = v.replace(/#/g, '');
-            } catch (ee) {
-            }
-            global_var[k] = v;
-//            if (k === 'current_project_id') {
-////                $('#projectList option')
-////                        .removeAttr('selected')
-////                        .filter('[value='+v+']')
-////                        .attr('selected', true)
-//                $('#projectList').val(v);
-//            }
-
-        }
-    },
-}
-
 const boxArray = [];
 const div = document.querySelectorAll('#products')[0];
 
@@ -145,7 +40,6 @@ class genCategory {
     );
   }
   boxHTML(data) {
-
     return `
       <div  class="owl-lazy col-md-3 item-${data.id}">
       <div class="blog-entry product-item-box">
@@ -158,7 +52,7 @@ class genCategory {
         <a href="detail.html?catid=${data.id}&category=${data.mezmun}">
           <div class="d-flex">
             <span class="product-short-desc d-flex">
-              <strong class="mr-auto">${ data.aciqlama}</strong>
+              <strong class="mr-auto">${data.aciqlama}</strong>
               <strong clas="float-right"><i class="fa fa-image"></i> ${this.imgCountArr(data.fayl)}</strong>
             </span>
           </div>
@@ -197,9 +91,9 @@ class genCategory {
     });
   }
   loadResults(startLimit, endLimit) {
-    var text  =  Utility.getParamFromUrl('key');
-        text  =  decodeURI(text);
-        text = text.replaceAll('+',' ');
+    var text = Utility.getParamFromUrl('key');
+    text = decodeURI(text);
+    text = text.replaceAll('+', ' ');
     var data = {
       kv: {
         startLimit: startLimit,
@@ -241,43 +135,76 @@ class genCategory {
   genPrettyAndCorusel(id) {
     var that = this;
     $(`#${id}`).owlCarousel({
-        loop: false,
-        rewind: true,
-        items: 1,
-        lazyLoad:true,
-        lazyLoadEager: true,
-        margin: 15,
-        nav: true,
-        dots: false,
-        autoplay: false,
-        autoplayHoverPause: true,
-        smartSpeed: 300,
-        autoplayTimeout: 8000,
-        animateOut: 'fadeOut',
-        navText: [
-          "<i class='fa fa-chevron-left'></i>",
-          "<i class='fa fa-chevron-right'></i>",
-        ],
-        onInitialized  :function (e) {
-          that.counter(e,id)
-        } , //When the plugin has initialized.
-        onTranslated : function (e) {
-          that.counter(e,id)
-        } //When the translation of the stage has finished.
-      });
+      loop: false,
+      rewind: true,
+      items: 1,
+      lazyLoad: true,
+      lazyLoadEager: true,
+      margin: 15,
+      nav: true,
+      dots: false,
+      autoplay: false,
+      autoplayHoverPause: true,
+      smartSpeed: 300,
+      autoplayTimeout: 8000,
+      animateOut: 'fadeOut',
+      navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+      onInitialized: function (e) {
+        that.counter(e, id);
+      }, //When the plugin has initialized.
+      onTranslated: function (e) {
+        that.counter(e, id);
+      }, //When the translation of the stage has finished.
+    });
 
-      // PRETTY PHOTO
-      $(`.product-item-carousel a[rel^='prettyPhoto[cat_list_gallery-${id}]']`
-      ).prettyPhoto({
-        theme: 'facebook',
-        slideshow: 5000,
-        autoplay_slideshow: true,
-        allow_resize: true,
-        social_tools: false,
-        deeplinking: false,
-      });
-   }
-
+    // PRETTY PHOTO
+    $(`.product-item-carousel a[rel^='prettyPhoto[cat_list_gallery-${id}]']`).prettyPhoto({
+      theme: 'facebook',
+      slideshow: 5000,
+      autoplay_slideshow: true,
+      allow_resize: true,
+      social_tools: false,
+      deeplinking: false,
+    });
+  }
 }
 
-new genCategory().loadResults(startLimit, endLimit);
+// new genCategory().loadResults(startLimit, endLimit);
+////////////////////////////////////////////////////////////////////////////
+const loadApiArchive = function () {
+  loadResults(startLimit, endLimit) {
+    var text = Utility.getParamFromUrl('key');
+    text = decodeURI(text);
+    text = text.replaceAll('+', ' ');
+    var data = {
+      kv: {
+        startLimit: startLimit,
+        endLimit: endLimit,
+        searchText: text,
+      },
+    };
+    data = JSON.stringify(data);
+    var that = this;
+    $.ajax({
+      url: 'https://test.sourcedagile.com/api/post/nasrv/48edh/22050618260504718835',
+      method: 'POST',
+      data: data,
+      contentType: 'application/json',
+      crossDomain: true,
+      async: true,
+      success: function (data) {
+        var $results = $('#products');
+        $('.loading').fadeOut('fast', function () {
+          $(this).remove();
+        });
+        that.handleApi(data.tbl[0].r);
+        rowCount = data.kv.rowCount;
+        $results.removeData('loading');
+      },
+    });
+  }
+  return (Object.freeze || Object)({
+    init: function init() {},
+    load: function () {},
+  });
+};

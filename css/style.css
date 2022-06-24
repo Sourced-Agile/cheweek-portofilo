@@ -31,11 +31,9 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: 'Work Sans', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol';
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace;
+  --font-family-sans-serif: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 }
 
 *,
@@ -74,9 +72,8 @@ section {
 
 body {
   margin: 0;
-  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -544,8 +541,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-    'Courier New', monospace;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 }
 
 code {
@@ -2044,14 +2040,11 @@ pre code {
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
-  -webkit-transition: border-color 0.15s ease-in-out,
-    -webkit-box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out,
-    -webkit-box-shadow 0.15s ease-in-out;
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   -o-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
-    -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 @media screen and (prefers-reduced-motion: reduce) {
   .form-control {
@@ -2145,22 +2138,14 @@ select.form-control:focus::-ms-value {
 }
 .form-control-plaintext.form-control-sm,
 .input-group-sm > .form-control-plaintext.form-control,
-.input-group-sm
-  > .input-group-prepend
-  > .form-control-plaintext.input-group-text,
-.input-group-sm
-  > .input-group-append
-  > .form-control-plaintext.input-group-text,
+.input-group-sm > .input-group-prepend > .form-control-plaintext.input-group-text,
+.input-group-sm > .input-group-append > .form-control-plaintext.input-group-text,
 .input-group-sm > .input-group-prepend > .form-control-plaintext.btn,
 .input-group-sm > .input-group-append > .form-control-plaintext.btn,
 .form-control-plaintext.form-control-lg,
 .input-group-lg > .form-control-plaintext.form-control,
-.input-group-lg
-  > .input-group-prepend
-  > .form-control-plaintext.input-group-text,
-.input-group-lg
-  > .input-group-append
-  > .form-control-plaintext.input-group-text,
+.input-group-lg > .input-group-prepend > .form-control-plaintext.input-group-text,
+.input-group-lg > .input-group-append > .form-control-plaintext.input-group-text,
 .input-group-lg > .input-group-prepend > .form-control-plaintext.btn,
 .input-group-lg > .input-group-append > .form-control-plaintext.btn {
   padding-right: 0;
@@ -2181,12 +2166,8 @@ select.form-control:focus::-ms-value {
 
 select.form-control-sm:not([size]):not([multiple]),
 .input-group-sm > select.form-control:not([size]):not([multiple]),
-.input-group-sm
-  > .input-group-prepend
-  > select.input-group-text:not([size]):not([multiple]),
-.input-group-sm
-  > .input-group-append
-  > select.input-group-text:not([size]):not([multiple]),
+.input-group-sm > .input-group-prepend > select.input-group-text:not([size]):not([multiple]),
+.input-group-sm > .input-group-append > select.input-group-text:not([size]):not([multiple]),
 .input-group-sm > .input-group-prepend > select.btn:not([size]):not([multiple]),
 .input-group-sm > .input-group-append > select.btn:not([size]):not([multiple]) {
   height: calc(1.8125rem + 2px);
@@ -2206,12 +2187,8 @@ select.form-control-sm:not([size]):not([multiple]),
 
 select.form-control-lg:not([size]):not([multiple]),
 .input-group-lg > select.form-control:not([size]):not([multiple]),
-.input-group-lg
-  > .input-group-prepend
-  > select.input-group-text:not([size]):not([multiple]),
-.input-group-lg
-  > .input-group-append
-  > select.input-group-text:not([size]):not([multiple]),
+.input-group-lg > .input-group-prepend > select.input-group-text:not([size]):not([multiple]),
+.input-group-lg > .input-group-append > select.input-group-text:not([size]):not([multiple]),
 .input-group-lg > .input-group-prepend > select.btn:not([size]):not([multiple]),
 .input-group-lg > .input-group-append > select.btn:not([size]):not([multiple]) {
   height: calc(2.875rem + 2px);
@@ -2353,16 +2330,12 @@ select.form-control-lg:not([size]):not([multiple]),
   display: block;
 }
 
-.was-validated
-  .custom-control-input:valid:checked
-  ~ .custom-control-label::before,
+.was-validated .custom-control-input:valid:checked ~ .custom-control-label::before,
 .custom-control-input.is-valid:checked ~ .custom-control-label::before {
   background-color: #34ce57;
 }
 
-.was-validated
-  .custom-control-input:valid:focus
-  ~ .custom-control-label::before,
+.was-validated .custom-control-input:valid:focus ~ .custom-control-label::before,
 .custom-control-input.is-valid:focus ~ .custom-control-label::before {
   -webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
   box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
@@ -2466,16 +2439,12 @@ select.form-control-lg:not([size]):not([multiple]),
   display: block;
 }
 
-.was-validated
-  .custom-control-input:invalid:checked
-  ~ .custom-control-label::before,
+.was-validated .custom-control-input:invalid:checked ~ .custom-control-label::before,
 .custom-control-input.is-invalid:checked ~ .custom-control-label::before {
   background-color: #e4606d;
 }
 
-.was-validated
-  .custom-control-input:invalid:focus
-  ~ .custom-control-label::before,
+.was-validated .custom-control-input:invalid:focus ~ .custom-control-label::before,
 .custom-control-input.is-invalid:focus ~ .custom-control-label::before {
   -webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
   box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
@@ -2607,18 +2576,16 @@ select.form-control-lg:not([size]):not([multiple]),
   font-size: 1rem;
   line-height: 1.8;
   border-radius: 0.25rem;
-  -webkit-transition: color 0.15s ease-in-out,
-    background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
     -webkit-box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
     -webkit-box-shadow 0.15s ease-in-out;
+  -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 @media screen and (prefers-reduced-motion: reduce) {
   .btn {
@@ -3776,12 +3743,8 @@ input[type='button'].btn-block {
 .input-group > .input-group-prepend > .input-group-text,
 .input-group > .input-group-append:not(:last-child) > .btn,
 .input-group > .input-group-append:not(:last-child) > .input-group-text,
-.input-group
-  > .input-group-append:last-child
-  > .btn:not(:last-child):not(.dropdown-toggle),
-.input-group
-  > .input-group-append:last-child
-  > .input-group-text:not(:last-child) {
+.input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle),
+.input-group > .input-group-append:last-child > .input-group-text:not(:last-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
@@ -3791,9 +3754,7 @@ input[type='button'].btn-block {
 .input-group > .input-group-prepend:not(:first-child) > .btn,
 .input-group > .input-group-prepend:not(:first-child) > .input-group-text,
 .input-group > .input-group-prepend:first-child > .btn:not(:first-child),
-.input-group
-  > .input-group-prepend:first-child
-  > .input-group-text:not(:first-child) {
+.input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -3879,27 +3840,19 @@ input[type='button'].btn-block {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
 }
 
-.custom-checkbox
-  .custom-control-input:indeterminate
-  ~ .custom-control-label::before {
+.custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {
   background-color: #78d5ef;
 }
 
-.custom-checkbox
-  .custom-control-input:indeterminate
-  ~ .custom-control-label::after {
+.custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::after {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4'%3E%3Cpath stroke='%23fff' d='M0 2h4'/%3E%3C/svg%3E");
 }
 
-.custom-checkbox
-  .custom-control-input:disabled:checked
-  ~ .custom-control-label::before {
+.custom-checkbox .custom-control-input:disabled:checked ~ .custom-control-label::before {
   background-color: rgba(120, 213, 239, 0.5);
 }
 
-.custom-checkbox
-  .custom-control-input:disabled:indeterminate
-  ~ .custom-control-label::before {
+.custom-checkbox .custom-control-input:disabled:indeterminate ~ .custom-control-label::before {
   background-color: rgba(120, 213, 239, 0.5);
 }
 
@@ -3915,9 +3868,7 @@ input[type='button'].btn-block {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23fff'/%3E%3C/svg%3E");
 }
 
-.custom-radio
-  .custom-control-input:disabled:checked
-  ~ .custom-control-label::before {
+.custom-radio .custom-control-input:disabled:checked ~ .custom-control-label::before {
   background-color: rgba(120, 213, 239, 0.5);
 }
 
@@ -3942,10 +3893,8 @@ input[type='button'].btn-block {
 .custom-select:focus {
   border-color: #eaf8fd;
   outline: 0;
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075),
-    0 0 5px rgba(234, 248, 253, 0.5);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075),
-    0 0 5px rgba(234, 248, 253, 0.5);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 0 5px rgba(234, 248, 253, 0.5);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 0 5px rgba(234, 248, 253, 0.5);
 }
 .custom-select:focus::-ms-value {
   color: #495057;
@@ -4886,18 +4835,10 @@ input[type='button'].btn-block {
   .card-group > .card:not(:first-child):not(:last-child):not(:only-child) {
     border-radius: 0;
   }
-  .card-group
-    > .card:not(:first-child):not(:last-child):not(:only-child)
-    .card-img-top,
-  .card-group
-    > .card:not(:first-child):not(:last-child):not(:only-child)
-    .card-img-bottom,
-  .card-group
-    > .card:not(:first-child):not(:last-child):not(:only-child)
-    .card-header,
-  .card-group
-    > .card:not(:first-child):not(:last-child):not(:only-child)
-    .card-footer {
+  .card-group > .card:not(:first-child):not(:last-child):not(:only-child) .card-img-top,
+  .card-group > .card:not(:first-child):not(:last-child):not(:only-child) .card-img-bottom,
+  .card-group > .card:not(:first-child):not(:last-child):not(:only-child) .card-header,
+  .card-group > .card:not(:first-child):not(:last-child):not(:only-child) .card-footer {
     border-radius: 0;
   }
 }
@@ -5835,9 +5776,8 @@ button.close {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -5951,9 +5891,8 @@ button.close {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -6183,9 +6122,7 @@ button.close {
   -ms-transform: translateX(0);
   transform: translateX(0);
 }
-@supports (
-  (-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)
-) {
+@supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
   .carousel-item-next.carousel-item-left,
   .carousel-item-prev.carousel-item-right {
     -webkit-transform: translate3d(0, 0, 0);
@@ -6199,9 +6136,7 @@ button.close {
   -ms-transform: translateX(100%);
   transform: translateX(100%);
 }
-@supports (
-  (-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)
-) {
+@supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
   .carousel-item-next,
   .active.carousel-item-right {
     -webkit-transform: translate3d(100%, 0, 0);
@@ -6215,9 +6150,7 @@ button.close {
   -ms-transform: translateX(-100%);
   transform: translateX(-100%);
 }
-@supports (
-  (-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)
-) {
+@supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
   .carousel-item-prev,
   .active.carousel-item-left {
     -webkit-transform: translate3d(-100%, 0, 0);
@@ -6255,9 +6188,7 @@ button.close {
   -ms-transform: translateX(0);
   transform: translateX(0);
 }
-@supports (
-  (-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)
-) {
+@supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
   .carousel-fade .carousel-item-next,
   .carousel-fade .carousel-item-prev,
   .carousel-fade .carousel-item.active,
@@ -9204,8 +9135,7 @@ NaNrem-5 {
 }
 
 .text-monospace {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-    'Courier New', monospace;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 }
 
 .text-justify {
@@ -9625,7 +9555,6 @@ h5,
   font-weight: 500;
 }
 #colorlib-aside #colorlib-main-menu ul.pageNav li {
-
 }
 #colorlib-aside #colorlib-main-menu ul.pageNav li a {
   background: transparent;
@@ -11436,8 +11365,7 @@ iframe#youtube {
   position: relative;
   width: 50%;
   height: 50%;
-  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(255deg)
-    brightness(114%) contrast(100%);
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(255deg) brightness(114%) contrast(100%);
 }
 .client-logos-carousel .item img {
   display: block;
@@ -11516,7 +11444,7 @@ body.offcanvas .brand-logo {
 }
 .product-item-box .product-item-brand .logo-example-light {
   display: none;
-} 
+}
 .product-item-box .product-item-brand img {
   width: 80px;
   height: 80px;
@@ -11571,21 +11499,9 @@ body.offcanvas .brand-logo {
   bottom: 0px;
   left: 0;
   padding: 5px 10px 5px;
-  background: -moz-linear-gradient(
-    0deg,
-    rgb(0 0 0 / 54%) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  background: -webkit-linear-gradient(
-    0deg,
-    rgb(0 0 0 / 54%) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  background: linear-gradient(
-    0deg,
-    rgb(0 0 0 / 54%) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: -moz-linear-gradient(0deg, rgb(0 0 0 / 54%) 0%, rgba(255, 255, 255, 0) 100%);
+  background: -webkit-linear-gradient(0deg, rgb(0 0 0 / 54%) 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(0deg, rgb(0 0 0 / 54%) 0%, rgba(255, 255, 255, 0) 100%);
   z-index: 1;
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
@@ -11717,18 +11633,18 @@ h5,
   font-size: 14px;
   background: #000000;
 }
-#colorlib-aside #colorlib-main-menu ul li a,
+#colorlib-aside #colorlib-main-menu ul li .cat-click,
 #colorlib-aside .colorlib-footer,
-#colorlib-aside .colorlib-footer ul li a {
+#colorlib-aside .colorlib-footer ul li .cat-click {
   color: rgb(255 255 255 / 80%);
 }
 #colorlib-aside {
   background: rgb(0 0 0);
 }
-#colorlib-aside #colorlib-main-menu ul li a:hover {
+#colorlib-aside #colorlib-main-menu ul li .cat-click:hover {
   color: #ffffff;
 }
-#colorlib-aside #colorlib-main-menu ul li a:after {
+#colorlib-aside #colorlib-main-menu ul li .cat-click:after {
   background-color: #ffffff;
 }
 #colorlib-aside #colorlib-main-menu ul.navloading li {
@@ -11739,10 +11655,10 @@ h5,
 }
 #colorlib-aside #colorlib-main-menu ul.navloading li.shimmer {
   display: inline-block;
-  color:white;
-  
+  color: white;
+
   background: #393939 -webkit-gradient(linear, 100% 0, 0 0, from(#393939), color-stop(0.5, rgb(255 255 255 / 7%)), to(#393939));
-  
+
   background-position: -4rem top; /*50px*/
   background-repeat: no-repeat;
   /* -webkit-background-clip: text; */
@@ -11751,19 +11667,18 @@ h5,
   -webkit-animation-duration: 2.2s;
   -webkit-animation-iteration-count: infinite;
   -webkit-background-size: 4rem 100%; /*50px*/
-  
 }
 
 @-webkit-keyframes shimmer {
-    0% {
-        background-position: -4rem top; /*50px*/
-    }
+  0% {
+    background-position: -4rem top; /*50px*/
+  }
 
-    70% {
-        background-position: 12.5rem top; /*200px*/
-    }
+  70% {
+    background-position: 12.5rem top; /*200px*/
+  }
 
-    100% {
-        background-position: 12.5rem top; /*200px*/
-    }
+  100% {
+    background-position: 12.5rem top; /*200px*/
+  }
 }
